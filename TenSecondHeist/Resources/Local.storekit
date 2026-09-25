@@ -1,0 +1,48 @@
+{
+  "identifier" : "TenSecondHeist.Local",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "1.99",
+      "familyShareable" : false,
+      "internalID" : "campaign-local-001",
+      "localizations" : [{"description":"Unlock forty additional handcrafted heists.","displayName":"Full Campaign","locale":"en_US"}],
+      "productID" : "com.revpointstudios.tensecondheist.campaign",
+      "referenceName" : "Full Campaign",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "help5-local-001",
+      "localizations" : [{"description":"Five optional Inside Help tokens. Disabled in the shipping app pending wallet recovery.","displayName":"Five Inside Help Tokens","locale":"en_US"}],
+      "productID" : "com.revpointstudios.tensecondheist.help5",
+      "referenceName" : "Five Inside Help Tokens",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "1.99",
+      "familyShareable" : false,
+      "internalID" : "help12-local-001",
+      "localizations" : [{"description":"Twelve optional Inside Help tokens. Disabled in the shipping app pending wallet recovery.","displayName":"Twelve Inside Help Tokens","locale":"en_US"}],
+      "productID" : "com.revpointstudios.tensecondheist.help12",
+      "referenceName" : "Twelve Inside Help Tokens",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_interruptedPurchasesEnabled" : false,
+    "_storefront" : "USA",
+    "_storeKitErrors" : [],
+    "_transactionFailAfterPurchasingEnabled" : false,
+    "askToBuyEnabled" : false,
+    "billingGracePeriodEnabled" : false,
+    "disableDialogs" : false,
+    "locale" : "en_US",
+    "renewalBillingIssuesEnabled" : false,
+    "storefront" : "USA"
+  },
+  "subscriptionGroups" : [],
+  "version" : {"major" : 3, "minor" : 0}
+}
