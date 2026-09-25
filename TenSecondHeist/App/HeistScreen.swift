@@ -134,6 +134,22 @@ struct HeistScreen: View {
     private var actionControls: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 8) {
+                Text("STEP").font(.system(size: 10, weight: .heavy, design: .monospaced))
+                    .foregroundStyle(HeistStyle.muted).frame(width: 44, alignment: .leading)
+                ForEach([Heading.north, .west, .south, .east], id: \.rawValue) { direction in
+                    let destination = Tile(currentPosition.x + Int(direction.vector.x),
+                                           currentPosition.y + Int(direction.vector.y))
+                    Button { route(to: destination) } label: {
+                        Image(systemName: arrow(direction))
+                            .font(.system(size: 17, weight: .bold))
+                            .frame(maxWidth: .infinity, minHeight: 44)
+                            .background(HeistStyle.raised, in: RoundedRectangle(cornerRadius: 11))
+                    }.buttonStyle(.plain).foregroundStyle(HeistStyle.role(selected))
+                        .disabled(!level.isWalkable(destination))
+                        .accessibilityLabel("Add one step \(direction.rawValue) for \(selected.name)")
+                }
+            }
+            HStack(spacing: 8) {
                 actionButton("WAIT .5s", icon: "hourglass") { append(.wait(2)) }
                 actionButton("WAIT 1s", icon: "clock") { append(.wait(4)) }
                 if selected == .thief,
@@ -187,6 +203,26 @@ struct HeistScreen: View {
                     if number < 10 { Spacer(minLength: 0) }
                 }
             }.font(.system(size: 9, weight: .bold, design: .monospaced)).foregroundStyle(HeistStyle.muted)
+            ForEach(level.roles) { role in
+                let schedule = SimulationEngine.script(plan[role], start: level.start(role)!)
+                HStack(spacing: 8) {
+                    Text(role.shortName).font(.system(size: 11, weight: .black, design: .monospaced))
+                        .foregroundStyle(HeistStyle.role(role)).frame(width: 16)
+                    GeometryReader { geometry in
+                        ZStack(alignment: .leading) {
+                            RoundedRectangle(cornerRadius: 4).fill(HeistStyle.raised)
+                            HStack(spacing: 0) {
+                                ForEach(schedule.indices, id: \.self) { index in
+                                    let action = schedule[index]
+                                    Rectangle().fill(HeistStyle.role(role).opacity(action.action.kind == .wait ? 0.30 :
+                                        action.action.kind == .move ? 0.67 : 1))
+                                        .frame(width: geometry.size.width * CGFloat(max(0, min(40, action.end) - min(40, action.begin))) / 40)
+                                }
+                            }.clipShape(RoundedRectangle(cornerRadius: 4))
+                        }
+                    }.frame(height: 10)
+                }.accessibilityLabel("\(role.name) has \(plan[role].count) scheduled actions")
+            }
             if let simulation {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 6) {
@@ -227,12 +263,11 @@ struct HeistScreen: View {
         case .distract: "SIGNAL"
         }
     }
+    private func arrow(_ direction: Heading) -> String {
+        switch direction { case .north: "arrow.up"; case .east: "arrow.right"; case .south: "arrow.down"; case .west: "arrow.left" }
+    }
     private func route(to tile: Tile) {
         guard !playing, let origin = level.start(selected) else { return }
-        if level.roles.contains(where: { $0 != selected && level.start($0) == tile }) {
-            selected = level.roles.first(where: { $0 != selected && level.start($0) == tile }) ?? selected
-            return
-        }
         let last = plan[selected].compactMap { $0.kind == .move ? $0.at : nil }.last ?? origin
         guard let path = level.path(from: last, to: tile), !path.isEmpty else { return }
         var changed = plan; changed[selected].append(contentsOf: path.map(PlannedAction.move))

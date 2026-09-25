@@ -99,6 +99,26 @@ struct BoardCanvas: View {
                         context.fill(Path(roundedRect: rect, cornerRadius: 3), with: .color(HeistStyle.raised))
                         let bevel = CGRect(x: rect.minX + 2, y: rect.minY + 2, width: rect.width - 4, height: 2)
                         context.fill(Path(bevel), with: .color(accent.opacity(0.22)))
+                        if level.site.contains("Archive") {
+                            for index in 1...3 {
+                                let shelf = CGRect(x: rect.minX + 6, y: rect.minY + CGFloat(index) * rect.height / 4,
+                                                   width: rect.width - 12, height: 2)
+                                context.fill(Path(shelf), with: .color(accent.opacity(0.28)))
+                            }
+                        } else if level.site.contains("Vault") {
+                            for offset in [CGPoint(x: 7, y: 7), CGPoint(x: rect.width - 7, y: rect.height - 7)] {
+                                context.fill(Path(ellipseIn: CGRect(x: rect.minX + offset.x - 2,
+                                                                     y: rect.minY + offset.y - 2,
+                                                                     width: 4, height: 4)),
+                                             with: .color(accent.opacity(0.6)))
+                            }
+                        } else if level.site.contains("Penthouse") {
+                            context.stroke(Path(roundedRect: rect.insetBy(dx: 5, dy: 5), cornerRadius: 2),
+                                           with: .color(accent.opacity(0.24)), lineWidth: 1)
+                        } else if (x + y).isMultiple(of: 3) {
+                            context.stroke(Path(roundedRect: rect.insetBy(dx: 8, dy: 7), cornerRadius: 2),
+                                           with: .color(accent.opacity(0.38)), lineWidth: 1.5)
+                        }
                     } else {
                         context.fill(Path(roundedRect: rect, cornerRadius: 2),
                                      with: .color((x + y).isMultiple(of: 2) ? HeistStyle.panel : HeistStyle.panel.opacity(0.77)))

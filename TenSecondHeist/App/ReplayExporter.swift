@@ -45,14 +45,15 @@ struct ReplayPreview: View {
         writer.add(input)
         guard writer.startWriting() else { throw writer.error ?? ExportError.encoderUnavailable }
         writer.startSession(atSourceTime: .zero)
-        for index in 0..<(Int(fps) * 10) {
+        let frameCount = max(Int(fps) * 2, simulation.outcome.tick * Int(fps) / 4 + Int(fps))
+        for index in 0..<frameCount {
             while !input.isReadyForMoreMediaData { try await Task.sleep(nanoseconds: 10_000_000) }
             guard let pool = adaptor.pixelBufferPool else { throw ExportError.encoderUnavailable }
             var optional: CVPixelBuffer?
             guard CVPixelBufferPoolCreatePixelBuffer(kCFAllocatorDefault, pool, &optional) == kCVReturnSuccess,
                   let buffer = optional else { throw ExportError.encoderUnavailable }
             let tick = min(simulation.outcome.tick, index * 4 / Int(fps))
-            let image = render(level: level, frame: simulation.frame(at: tick),
+            let image = render(level: level, plan: plan, frame: simulation.frame(at: tick),
                                outcome: simulation.outcome, size: CGSize(width: width, height: height))
             CVPixelBufferLockBaseAddress(buffer, [])
             let colorSpace = CGColorSpaceCreateDeviceRGB()
@@ -78,7 +79,7 @@ struct ReplayPreview: View {
         return url
     }
 
-    private static func render(level: LevelDefinition, frame: SimulationFrame,
+    private static func render(level: LevelDefinition, plan: Plan, frame: SimulationFrame,
                                outcome: HeistOutcome, size: CGSize) -> UIImage {
         let renderer = UIGraphicsImageRenderer(size: size)
         return renderer.image { context in
@@ -101,6 +102,18 @@ struct ReplayPreview: View {
             }
             func center(_ point: Point) -> CGPoint {
                 CGPoint(x: ox + (point.x + 0.5) * tileSize, y: oy + (point.y + 0.5) * tileSize)
+            }
+            for role in level.roles {
+                guard let start = level.start(role) else { continue }
+                let route = UIBezierPath()
+                route.move(to: center(start.point))
+                for action in plan[role] where action.kind == .move {
+                    if let destination = action.at { route.addLine(to: center(destination.point)) }
+                }
+                route.lineWidth = 3; route.lineCapStyle = .round
+                let routeColor: UIColor = role == .thief ? .systemYellow : role == .hacker ? .systemMint : .systemPurple
+                routeColor.withAlphaComponent(0.5).setStroke()
+                route.stroke()
             }
             let escape = center(level.escape.point)
             UIColor.systemMint.setStroke()
@@ -134,7 +147,9 @@ struct ReplayPreview: View {
             drawText(String(format: "%04.2f / 10.00", frame.seconds), x: 27, y: 777, size: 27,
                      color: UIColor(red: 0.99, green: 0.76, blue: 0.38, alpha: 1))
             let summary = frame.tick >= outcome.tick ? outcome.explanation : "The plan is unfolding…"
-            drawText(summary, x: 27, y: 836, size: 15, color: .white)
+            (summary as NSString).draw(in: CGRect(x: 27, y: 836, width: 486, height: 54), withAttributes: [
+                .font: UIFont.systemFont(ofSize: 15, weight: .semibold), .foregroundColor: UIColor.white
+            ])
             drawText("TEN SECOND HEIST  ·  REV POINT STUDIOS", x: 27, y: 907, size: 11,
                      color: UIColor(red: 0.55, green: 0.70, blue: 0.72, alpha: 1))
         }

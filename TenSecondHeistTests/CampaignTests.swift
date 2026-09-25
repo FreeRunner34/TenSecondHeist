@@ -32,7 +32,8 @@ final class CampaignTests: XCTestCase {
             XCTAssertEqual(a.frame(at: tick).actors, b.frame(at: tick).actors)
             XCTAssertEqual(a.frame(at: tick).collected, b.frame(at: tick).collected)
         }
-        XCTAssertEqual(a.frame(at: 8).actors, a.frame(at: 8).actors)
+        XCTAssertNotEqual(a.frame(at: 0).actors[.thief], a.frame(at: 8).actors[.thief])
+        XCTAssertTrue(a.frame(at: 16).collected.contains(level.loot[0].id))
         XCTAssertEqual(a.frame(at: 0).collected, [])
     }
 
