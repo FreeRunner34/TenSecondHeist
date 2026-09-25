@@ -8,6 +8,8 @@ Guards follow deterministic out-and-back waypoint patrols, four ticks between ad
 
 When a decoy signal completes, guards within six tiles pause at their current patrol position and face the decoy for twelve ticks (three seconds). A hack completes after one second and disables only cameras listed by that terminal for its authored `durationTicks`. A Camera Loop for one linked camera adds eight ticks (two seconds) to that camera's disabled interval. Shutdown begins when hacking finishes. Hints have no simulation effect.
 
+The timeline shows each planned crew action and each linked camera's shutdown window. Teal marks the regular disabled time; gold marks the extra two seconds from an active Camera Loop. A shutdown extending past ten seconds is clipped to the ten-second timeline. The Perfect Heist action target is shown above the board before the attempt.
+
 Levels live in `TenSecondHeist/Resources/levels.json`, with manually authored source in `tools/build_levels.py`. Each has a title, site, briefing, map, starts, escape, valuables, hazards, hint, `actionTarget`, and reference plan. The reference proves solvability; other player solutions are welcome. Perfect Heist requires collecting the required valuables, reaching escape, avoiding detection, using no assistance, and keeping the planned action count at or below `actionTarget`. Other successes still unlock the next level. Level IDs are stable save keys; never renumber released content. Add migrations before changing persistence shape.
 
 Run `python3 tools/build_levels.py && python3 tools/verify_levels.py`, then run XCTest on macOS. Never mark a new puzzle complete before the Swift engine's reference test passes.

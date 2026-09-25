@@ -39,6 +39,16 @@ struct HeistScreen: View {
     private var currentPosition: Tile {
         plan[selected].compactMap { $0.kind == .move ? $0.at : nil }.last ?? level.start(selected) ?? Tile(0, 0)
     }
+    private var trainingNote: String? {
+        switch level.id {
+        case "heist-01": "Tap Thief. Draw to the gold diamond, tap TAKE, then draw to EXIT. Press GO when ready."
+        case "heist-02": "The guard repeats the same route. Scrub the timeline to watch its position before you plan."
+        case "heist-03": "Camera B turns every two seconds. Add a WAIT to let its view pass before crossing."
+        case "heist-04": "Crew plans run at the same time. Select Hacker to reach the terminal, then time the Thief's route."
+        case "heist-05": "Select Decoy and tap DISTRACT to turn a nearby guard toward the signal for three seconds."
+        default: nil
+        }
+    }
 
     var body: some View {
         ScrollView {
@@ -59,6 +69,14 @@ struct HeistScreen: View {
                 }
                 Text(level.briefing).font(.system(size: 13, weight: .medium))
                     .foregroundStyle(HeistStyle.muted).fixedSize(horizontal: false, vertical: true)
+                if let trainingNote {
+                    Label(trainingNote, systemImage: "lightbulb.fill")
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundStyle(HeistStyle.cream)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(12)
+                        .background(HeistStyle.raised, in: RoundedRectangle(cornerRadius: 11))
+                }
                 HStack(spacing: 8) {
                     objective("\(level.loot.count) TO TAKE", symbol: "diamond.fill")
                     objective("EXIT BY 10s", symbol: "door.left.hand.open")
@@ -235,6 +253,20 @@ struct HeistScreen: View {
                     }.frame(height: 10)
                 }.accessibilityLabel("\(role.name) has \(plan[role].count) scheduled actions")
             }
+            if let hackerStart = level.start(.hacker) {
+                let hackerActions = SimulationEngine.script(plan[.hacker], start: hackerStart)
+                ForEach(level.cameras) { camera in
+                    if let terminal = level.terminals.first(where: { $0.disables.contains(camera.id) }) {
+                        let hacks = hackerActions.filter { $0.action.kind == .hack &&
+                            $0.action.target == terminal.id && $0.end < SimulationEngine.limit }
+                        ForEach(hacks.indices, id: \.self) { index in
+                            shutdownRow(camera: camera, from: hacks[index].end,
+                                        duration: terminal.durationTicks,
+                                        looped: progress.save.activeAssists[level.id] == .loop(camera: camera.id))
+                        }
+                    }
+                }
+            }
             if let simulation {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 6) {
@@ -380,6 +412,31 @@ struct HeistScreen: View {
             .foregroundStyle(HeistStyle.cream)
             .frame(maxWidth: .infinity, minHeight: 32)
             .background(HeistStyle.panel, in: RoundedRectangle(cornerRadius: 8))
+    }
+    private func shutdownRow(camera: Camera, from start: Int, duration: Int, looped: Bool) -> some View {
+        let baseEnd = min(40, start + duration)
+        let assistedEnd = min(40, start + duration + (looped ? 8 : 0))
+        return HStack(spacing: 8) {
+            Text(camera.id).font(.system(size: 9, weight: .bold, design: .monospaced))
+                .lineLimit(1).frame(width: 65, alignment: .leading)
+                .foregroundStyle(HeistStyle.teal)
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    RoundedRectangle(cornerRadius: 4).fill(HeistStyle.raised)
+                    if start < 40 {
+                        RoundedRectangle(cornerRadius: 4).fill(HeistStyle.teal)
+                            .frame(width: geometry.size.width * CGFloat(max(0, baseEnd - start)) / 40)
+                            .offset(x: geometry.size.width * CGFloat(start) / 40)
+                        if assistedEnd > baseEnd {
+                            RoundedRectangle(cornerRadius: 4).fill(HeistStyle.gold)
+                                .frame(width: geometry.size.width * CGFloat(assistedEnd - baseEnd) / 40)
+                                .offset(x: geometry.size.width * CGFloat(baseEnd) / 40)
+                        }
+                    }
+                }
+            }.frame(height: 9)
+        }.accessibilityElement(children: .ignore)
+            .accessibilityLabel("\(camera.id) disabled from \(Double(start) / 4) to \(Double(assistedEnd) / 4) seconds\(looped ? ", including two seconds of Camera Loop" : "")")
     }
 }
 
