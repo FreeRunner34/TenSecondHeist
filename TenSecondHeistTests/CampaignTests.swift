@@ -40,6 +40,7 @@ final class CampaignTests: XCTestCase {
         let a = SimulationEngine.run(level.reference, level: level)
         let b = SimulationEngine.run(level.reference, level: level)
         XCTAssertEqual(a.outcome, b.outcome)
+        XCTAssertEqual(a.events.map(\.text), b.events.map(\.text))
         for tick in 0...40 {
             XCTAssertEqual(a.frame(at: tick).actors, b.frame(at: tick).actors)
             XCTAssertEqual(a.frame(at: tick).collected, b.frame(at: tick).collected)

@@ -19,6 +19,7 @@ struct HeistScreen: View {
     @State private var confirmReset = false
     @State private var showHelp = false
     @State private var exportError: String?
+    @State private var exporting = false
     @State private var previewURL: ReplayURL?
     private let clock = Timer.publish(every: 0.25, on: .main, in: .common).autoconnect()
 
@@ -58,6 +59,11 @@ struct HeistScreen: View {
                 }
                 Text(level.briefing).font(.system(size: 13, weight: .medium))
                     .foregroundStyle(HeistStyle.muted).fixedSize(horizontal: false, vertical: true)
+                HStack(spacing: 8) {
+                    objective("\(level.loot.count) TO TAKE", symbol: "diamond.fill")
+                    objective("EXIT BY 10s", symbol: "door.left.hand.open")
+                    objective("PERFECT ≤\(level.actionTarget)", symbol: "sparkles")
+                }
                 BoardCanvas(level: level, plan: plan, frame: frame, selectedRole: selected,
                             editing: !playing, onTile: route(to:))
                     .accessibilityHint("Select a crew member, then drag along floor tiles to plan a route.")
@@ -324,6 +330,10 @@ struct HeistScreen: View {
             if won {
                 Text(progress.save.perfect.contains(level.id) ? "✦ PERFECT HEIST" : "Operation cleared")
                     .font(.system(size: 11, weight: .heavy, design: .monospaced)).foregroundStyle(HeistStyle.gold)
+                if !progress.save.perfect.contains(level.id) {
+                    Text("Perfect: finish unassisted with at most \(level.actionTarget) actions. This plan uses \(plan.actionCount).")
+                        .font(.footnote).foregroundStyle(HeistStyle.muted)
+                }
             } else {
                 Button("Jump to the mistake") { tick = result.outcome.tick }
                     .font(.footnote.bold()).foregroundStyle(HeistStyle.teal)
@@ -342,13 +352,18 @@ struct HeistScreen: View {
                     }
                 }
             }
-            HeistButton(text: "EXPORT REPLAY", symbol: "square.and.arrow.up") {
+            HeistButton(text: exporting ? "RENDERING REPLAY…" : "EXPORT REPLAY", symbol: "square.and.arrow.up") {
+                guard !exporting else { return }
+                exporting = true
+                exportError = nil
                 Task {
                     do { previewURL = ReplayURL(url: try await ReplayExporter.export(level: level, plan: plan,
                          simulation: result)) }
                     catch { exportError = "Replay export failed: \(error.localizedDescription)" }
+                    exporting = false
                 }
-            }
+            }.disabled(exporting)
+            if exporting { ProgressView().tint(HeistStyle.gold).accessibilityLabel("Rendering replay video") }
         }.padding(18).frame(maxWidth: .infinity, alignment: .leading)
             .background(HeistStyle.panel, in: RoundedRectangle(cornerRadius: 20))
     }
@@ -357,6 +372,14 @@ struct HeistScreen: View {
             .font(.system(size: 15, weight: .bold)).frame(maxWidth: .infinity, minHeight: 50)
             .foregroundStyle(HeistStyle.ink)
             .background(HeistStyle.gold, in: RoundedRectangle(cornerRadius: 16))
+    }
+    private func objective(_ title: String, symbol: String) -> some View {
+        Label(title, systemImage: symbol)
+            .font(.system(size: 9, weight: .bold, design: .monospaced))
+            .lineLimit(1).minimumScaleFactor(0.75)
+            .foregroundStyle(HeistStyle.cream)
+            .frame(maxWidth: .infinity, minHeight: 32)
+            .background(HeistStyle.panel, in: RoundedRectangle(cornerRadius: 8))
     }
 }
 

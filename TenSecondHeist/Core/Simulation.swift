@@ -149,7 +149,7 @@ enum SimulationEngine {
             return SimulationResult(frames: [initialFrame(level)], outcome: .invalid(problem), events: [])
         }
         let scripts = Dictionary(uniqueKeysWithValues: level.roles.map { ($0, script(plan[$0], start: level.start($0)!)) })
-        let allActions = scripts.flatMap { role, actions in actions.map { (role, $0) } }
+        let allActions = level.roles.flatMap { role in (scripts[role] ?? []).map { (role, $0) } }
         var frames: [SimulationFrame] = []
         var events: [(tick: Int, text: String)] = []
         var finished: HeistOutcome?

@@ -47,7 +47,11 @@ struct ReplayPreview: View {
         writer.startSession(atSourceTime: .zero)
         let frameCount = max(Int(fps) * 2, simulation.outcome.tick * Int(fps) / 4 + Int(fps))
         for index in 0..<frameCount {
-            while !input.isReadyForMoreMediaData { try await Task.sleep(nanoseconds: 10_000_000) }
+            try Task.checkCancellation()
+            while !input.isReadyForMoreMediaData {
+                guard writer.status == .writing else { throw writer.error ?? ExportError.encoderUnavailable }
+                try await Task.sleep(nanoseconds: 10_000_000)
+            }
             guard let pool = adaptor.pixelBufferPool else { throw ExportError.encoderUnavailable }
             var optional: CVPixelBuffer?
             guard CVPixelBufferPoolCreatePixelBuffer(kCFAllocatorDefault, pool, &optional) == kCVReturnSuccess,
