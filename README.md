@@ -17,7 +17,7 @@ The project is generated deterministically by `python3 tools/create_xcodeproj.py
 
 Tap a crew chip, then drag across the floor plan. The game snaps the route to adjacent walkable tiles. Add WAIT, TAKE, HACK, or DISTRACT at the selected crew member’s current endpoint. Tap an action chip to remove that action and later ones; Undo Last removes one. Rewind to inspect the result; scrubbing shows a deterministic snapshot. Editing recalculates the entire simulation from time zero. Reset Plan asks for confirmation and offers Undo Reset.
 
-See [gameplay rules](docs/GAMEPLAY.md), [Apple/TestFlight handoff](docs/TESTFLIGHT.md), and [original asset record](docs/ASSETS.md).
+See [gameplay rules](docs/GAMEPLAY.md), [Apple/TestFlight handoff](docs/TESTFLIGHT.md), [App Store copy draft](docs/APP_STORE.md), and [original asset record](docs/ASSETS.md).
 
 ## Purchases and data
 
