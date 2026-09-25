@@ -1,0 +1,7023 @@
+[
+  {
+    "id": "heist-01",
+    "title": "The Invitation",
+    "site": "The Gilt Gallery",
+    "difficulty": 1,
+    "briefing": "One canvas. One exit. Learn the rhythm before the building wakes up.",
+    "map": [
+      "#########",
+      "#...#...#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#...#...#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 1-1",
+        "at": {
+          "x": 4,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [],
+    "terminals": [],
+    "hint": "Draw a route to the canvas, take it, then reach the teal exit.",
+    "actionTarget": 7,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 1-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-02",
+    "title": "The Night Watch",
+    "site": "The Gilt Gallery",
+    "difficulty": 1,
+    "briefing": "The guard walks the same short beat every time. Read the footsteps.",
+    "map": [
+      "#########",
+      "#...#...#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#...#...#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 2-1",
+        "at": {
+          "x": 5,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Guard A",
+        "route": [
+          {
+            "x": 4,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [],
+    "terminals": [],
+    "hint": "The guard looks north while you cross the center line.",
+    "actionTarget": 8,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 2-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-03",
+    "title": "A Moment in the Dark",
+    "site": "The Gilt Gallery",
+    "difficulty": 2,
+    "briefing": "Camera B sweeps away for a moment. Waiting is part of the plan.",
+    "map": [
+      "#########",
+      "#...#...#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#...#...#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 3-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Camera B",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south",
+          "east",
+          "north",
+          "east"
+        ],
+        "range": 3.6,
+        "terminal": null
+      }
+    ],
+    "terminals": [],
+    "hint": "Wait one second, then cross the camera's column while it faces east.",
+    "actionTarget": 8,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 4
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 3-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-04",
+    "title": "Borrowed Darkness",
+    "site": "The Gilt Gallery",
+    "difficulty": 2,
+    "briefing": "The hacker has a window. The thief needs to use it.",
+    "map": [
+      "#########",
+      "#...#...#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#...#...#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 4-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Camera C",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Panel C"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Panel C",
+        "at": {
+          "x": 2,
+          "y": 2
+        },
+        "disables": [
+          "Camera C"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "Hack the terminal and have the thief start moving once the camera goes dark.",
+    "actionTarget": 10,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 4-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 2
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Panel C"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-05",
+    "title": "The Whole Crew",
+    "site": "The Gilt Gallery",
+    "difficulty": 3,
+    "briefing": "Three crew members. One ten-second window.",
+    "map": [
+      "#########",
+      "#...#...#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#...#...#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 2
+      },
+      "decoy": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 5-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Guard D",
+        "route": [
+          {
+            "x": 5,
+            "y": 3
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Camera D",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Panel D"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Panel D",
+        "at": {
+          "x": 2,
+          "y": 2
+        },
+        "disables": [
+          "Camera D"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "Hack first. Time the decoy's signal to face Guard D away from the thief.",
+    "actionTarget": 13,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 5-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 2
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Panel D"
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 2
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-06",
+    "title": "Double Exposure",
+    "site": "The Gilt Gallery",
+    "difficulty": 3,
+    "briefing": "The collector left two originals out. Grab both before the lens returns.",
+    "map": [
+      "#########",
+      "#...#...#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#...#...#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 6-1",
+        "at": {
+          "x": 3,
+          "y": 5
+        }
+      },
+      {
+        "id": "Loot 6-2",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Camera E",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Panel E"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Panel E",
+        "at": {
+          "x": 2,
+          "y": 2
+        },
+        "disables": [
+          "Camera E"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "A single hack gives enough time for both pickups. Mark each canvas separately.",
+    "actionTarget": 12,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 6-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 6-2"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 2
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Panel E"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-07",
+    "title": "The Quiet Door",
+    "site": "The Gilt Gallery",
+    "difficulty": 3,
+    "briefing": "A service door cuts through the night watch's lane.",
+    "map": [
+      "#########",
+      "#...#...#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#...+...#",
+      "#.......#",
+      "#...#...#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 7-1",
+        "at": {
+          "x": 5,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Guard F",
+        "route": [
+          {
+            "x": 4,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [],
+    "terminals": [],
+    "hint": "Doors are walkable. The guard's patrol repeats every two seconds.",
+    "actionTarget": 8,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 7-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-08",
+    "title": "Curtain Call",
+    "site": "The Gilt Gallery",
+    "difficulty": 3,
+    "briefing": "Enter from the east. The lens still sweeps on its own clock.",
+    "map": [
+      "#########",
+      "#...#...#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#...#...#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 7,
+        "y": 5
+      }
+    },
+    "escape": {
+      "x": 1,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 8-1",
+        "at": {
+          "x": 2,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Camera G",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south",
+          "east",
+          "north",
+          "east"
+        ],
+        "range": 3.6,
+        "terminal": null
+      }
+    ],
+    "terminals": [],
+    "hint": "Wait for the east-facing sweep, then move west across its column.",
+    "actionTarget": 8,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 4
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 8-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 5
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-09",
+    "title": "Blind Spot",
+    "site": "The Gilt Gallery",
+    "difficulty": 4,
+    "briefing": "Two lenses share one breaker. Give them both a reason to blink.",
+    "map": [
+      "#########",
+      "#...#...#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#...#...#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 9-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Camera H",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Panel H"
+      },
+      {
+        "id": "Camera I",
+        "at": {
+          "x": 5,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Panel H"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Panel H",
+        "at": {
+          "x": 2,
+          "y": 2
+        },
+        "disables": [
+          "Camera H",
+          "Camera I"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "Panel H shuts down Camera H and Camera I at the same moment.",
+    "actionTarget": 10,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 9-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 2
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Panel H"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-10",
+    "title": "Understudies",
+    "site": "The Gilt Gallery",
+    "difficulty": 4,
+    "briefing": "The guard and camera each have a predictable blind beat.",
+    "map": [
+      "#########",
+      "#...#...#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#...#...#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "decoy": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 10-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Guard J",
+        "route": [
+          {
+            "x": 5,
+            "y": 3
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Camera J",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south",
+          "east",
+          "north",
+          "east"
+        ],
+        "range": 3.6,
+        "terminal": null
+      }
+    ],
+    "terminals": [],
+    "hint": "Let Camera J turn east. Signal from the decoy to turn the guard north.",
+    "actionTarget": 11,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 10-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 2
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-11",
+    "title": "Clockwork",
+    "site": "The Gilt Gallery",
+    "difficulty": 4,
+    "briefing": "A patrolling guard and a sweeping lens cross the same room.",
+    "map": [
+      "#########",
+      "#...#...#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#...#...#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "decoy": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 11-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Guard K",
+        "route": [
+          {
+            "x": 4,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Camera K",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south",
+          "east",
+          "north",
+          "east"
+        ],
+        "range": 3.6,
+        "terminal": null
+      }
+    ],
+    "terminals": [],
+    "hint": "The guard will follow a signal even while his regular patrol continues on the timeline.",
+    "actionTarget": 11,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 11-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 2
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-12",
+    "title": "Last Look",
+    "site": "The Gilt Gallery",
+    "difficulty": 5,
+    "briefing": "One last room: two canvases, two lenses, and a guard who knows the exits.",
+    "map": [
+      "#########",
+      "#...#...#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#...#...#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 2
+      },
+      "decoy": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 12-1",
+        "at": {
+          "x": 3,
+          "y": 5
+        }
+      },
+      {
+        "id": "Loot 12-2",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Guard L",
+        "route": [
+          {
+            "x": 5,
+            "y": 3
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Camera L",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Panel L"
+      },
+      {
+        "id": "Camera M",
+        "at": {
+          "x": 5,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Panel L"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Panel L",
+        "at": {
+          "x": 2,
+          "y": 2
+        },
+        "disables": [
+          "Camera L",
+          "Camera M"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "The first canvas delays the thief. Signal late enough to cover the second pickup.",
+    "actionTarget": 15,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 12-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 12-2"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 2
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Panel L"
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 2
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-13",
+    "title": "Reverse Entry",
+    "site": "The Blue Archive",
+    "difficulty": 2,
+    "briefing": "The stacks hide an east entrance. The archive guard has a short route.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 7,
+        "y": 5
+      }
+    },
+    "escape": {
+      "x": 1,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 13-1",
+        "at": {
+          "x": 2,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Archivist A",
+        "route": [
+          {
+            "x": 4,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [],
+    "terminals": [],
+    "hint": "Cross the patrol lane when the guard turns back toward the shelves.",
+    "actionTarget": 7,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 13-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 5
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-14",
+    "title": "Stacks After Hours",
+    "site": "The Blue Archive",
+    "difficulty": 2,
+    "briefing": "A cataloging camera sweeps the central aisle on a regular beat.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 7,
+        "y": 5
+      }
+    },
+    "escape": {
+      "x": 1,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 14-1",
+        "at": {
+          "x": 2,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Archive Camera B",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south",
+          "east",
+          "north",
+          "east"
+        ],
+        "range": 3.6,
+        "terminal": null
+      }
+    ],
+    "terminals": [],
+    "hint": "Cross the center after the camera turns to the east.",
+    "actionTarget": 8,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 4
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 14-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 5
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-15",
+    "title": "The Switchboard",
+    "site": "The Blue Archive",
+    "difficulty": 3,
+    "briefing": "One breaker covers the east aisle. Give the thief a clean start.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 7,
+        "y": 5
+      },
+      "hacker": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 1,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 15-1",
+        "at": {
+          "x": 2,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Archive Camera C",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Archive Panel C"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Archive Panel C",
+        "at": {
+          "x": 6,
+          "y": 2
+        },
+        "disables": [
+          "Archive Camera C"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "The hacker can reach the panel in half a second. The blackout starts after hacking completes.",
+    "actionTarget": 10,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 15-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 2
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Archive Panel C"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-16",
+    "title": "Catalog Distraction",
+    "site": "The Blue Archive",
+    "difficulty": 3,
+    "briefing": "An attentive archivist has a clear view of the borrowed folio.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 7,
+        "y": 5
+      },
+      "decoy": {
+        "x": 1,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 1,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 16-1",
+        "at": {
+          "x": 2,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Archivist D",
+        "route": [
+          {
+            "x": 3,
+            "y": 3
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [],
+    "terminals": [],
+    "hint": "Signal from the west so the archivist faces away from the floor aisle.",
+    "actionTarget": 11,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 16-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 5
+            }
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 2
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-17",
+    "title": "Two Ledgers",
+    "site": "The Blue Archive",
+    "difficulty": 3,
+    "briefing": "The records were split. Both ledgers must leave together.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 7,
+        "y": 5
+      },
+      "hacker": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 1,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 17-1",
+        "at": {
+          "x": 5,
+          "y": 5
+        }
+      },
+      {
+        "id": "Loot 17-2",
+        "at": {
+          "x": 2,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Archive Camera E",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Archive Panel E"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Archive Panel E",
+        "at": {
+          "x": 6,
+          "y": 2
+        },
+        "disables": [
+          "Archive Camera E"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "Take each ledger as you pass. A single breaker shuts the camera down long enough.",
+    "actionTarget": 12,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 17-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 17-2"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 2
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Archive Panel E"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-18",
+    "title": "Telltale Beam",
+    "site": "The Blue Archive",
+    "difficulty": 3,
+    "briefing": "The upper aisle is exposed to a lens pointing up from the stacks.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 3
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 3
+    },
+    "loot": [
+      {
+        "id": "Loot 18-1",
+        "at": {
+          "x": 6,
+          "y": 3
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Archive Camera F",
+        "at": {
+          "x": 4,
+          "y": 5
+        },
+        "sweep": [
+          "north",
+          "east",
+          "south",
+          "east"
+        ],
+        "range": 3.6,
+        "terminal": null
+      }
+    ],
+    "terminals": [],
+    "hint": "The upward sweep lasts two seconds. Cross its column after it turns right.",
+    "actionTarget": 8,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 4
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 3
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 18-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-19",
+    "title": "Subfloor Wiring",
+    "site": "The Blue Archive",
+    "difficulty": 4,
+    "briefing": "The hacker slips below the shelves while the thief takes the upper aisle.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 3
+      },
+      "hacker": {
+        "x": 1,
+        "y": 6
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 3
+    },
+    "loot": [
+      {
+        "id": "Loot 19-1",
+        "at": {
+          "x": 6,
+          "y": 3
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Archive Camera G",
+        "at": {
+          "x": 4,
+          "y": 5
+        },
+        "sweep": [
+          "north"
+        ],
+        "range": 3.6,
+        "terminal": "Archive Panel G"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Archive Panel G",
+        "at": {
+          "x": 2,
+          "y": 6
+        },
+        "disables": [
+          "Archive Camera G"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "The terminal below disables the upward-facing camera.",
+    "actionTarget": 10,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 3
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 19-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 6
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Archive Panel G"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-20",
+    "title": "Cover Story",
+    "site": "The Blue Archive",
+    "difficulty": 4,
+    "briefing": "The security guard watches the upper aisle from the records desk.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 3
+      },
+      "decoy": {
+        "x": 7,
+        "y": 6
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 3
+    },
+    "loot": [
+      {
+        "id": "Loot 20-1",
+        "at": {
+          "x": 6,
+          "y": 3
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Archivist H",
+        "route": [
+          {
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "facing": "north",
+        "range": 3.2
+      }
+    ],
+    "cameras": [],
+    "terminals": [],
+    "hint": "Signal from below the desk. The guard looks down for three seconds.",
+    "actionTarget": 11,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 3
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 20-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 6
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-21",
+    "title": "Copy Room",
+    "site": "The Blue Archive",
+    "difficulty": 4,
+    "briefing": "Two red lenses cover the return route; one breaker feeds both.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 7,
+        "y": 5
+      },
+      "hacker": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 1,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 21-1",
+        "at": {
+          "x": 2,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Archive Camera I",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Archive Panel I"
+      },
+      {
+        "id": "Archive Camera J",
+        "at": {
+          "x": 3,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Archive Panel I"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Archive Panel I",
+        "at": {
+          "x": 6,
+          "y": 2
+        },
+        "disables": [
+          "Archive Camera I",
+          "Archive Camera J"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "Both cameras go dark together. Watch the disabled indicators on the timeline.",
+    "actionTarget": 10,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 21-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 2
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Archive Panel I"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-22",
+    "title": "Loose Index",
+    "site": "The Blue Archive",
+    "difficulty": 5,
+    "briefing": "A beam and a watchful archivist share the upper aisle.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 3
+      },
+      "hacker": {
+        "x": 1,
+        "y": 6
+      },
+      "decoy": {
+        "x": 7,
+        "y": 6
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 3
+    },
+    "loot": [
+      {
+        "id": "Loot 22-1",
+        "at": {
+          "x": 6,
+          "y": 3
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Archivist K",
+        "route": [
+          {
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "facing": "north",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Archive Camera K",
+        "at": {
+          "x": 4,
+          "y": 5
+        },
+        "sweep": [
+          "north"
+        ],
+        "range": 3.6,
+        "terminal": "Archive Panel K"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Archive Panel K",
+        "at": {
+          "x": 2,
+          "y": 6
+        },
+        "disables": [
+          "Archive Camera K"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "The hacker handles the beam. The decoy turns the archivist toward the lower floor.",
+    "actionTarget": 13,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 3
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 22-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 6
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Archive Panel K"
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 6
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-23",
+    "title": "Redacted Files",
+    "site": "The Blue Archive",
+    "difficulty": 5,
+    "briefing": "A sweeping camera and a patrolling guard complicate the return aisle.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 7,
+        "y": 5
+      },
+      "decoy": {
+        "x": 1,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 1,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 23-1",
+        "at": {
+          "x": 2,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Archivist L",
+        "route": [
+          {
+            "x": 4,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Archive Camera L",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south",
+          "east",
+          "north",
+          "east"
+        ],
+        "range": 3.6,
+        "terminal": null
+      }
+    ],
+    "terminals": [],
+    "hint": "The camera turns east while the archivist follows the west-side distraction.",
+    "actionTarget": 11,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 23-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 5
+            }
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 2
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-24",
+    "title": "Midnight Inventory",
+    "site": "The Blue Archive",
+    "difficulty": 5,
+    "briefing": "The stolen index has two halves, and all three crew members have a job.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#..#.#..#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 3
+      },
+      "hacker": {
+        "x": 1,
+        "y": 6
+      },
+      "decoy": {
+        "x": 7,
+        "y": 6
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 3
+    },
+    "loot": [
+      {
+        "id": "Loot 24-1",
+        "at": {
+          "x": 3,
+          "y": 3
+        }
+      },
+      {
+        "id": "Loot 24-2",
+        "at": {
+          "x": 6,
+          "y": 3
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Archivist M",
+        "route": [
+          {
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "facing": "north",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Archive Camera M",
+        "at": {
+          "x": 4,
+          "y": 5
+        },
+        "sweep": [
+          "north"
+        ],
+        "range": 3.6,
+        "terminal": "Archive Panel M"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Archive Panel M",
+        "at": {
+          "x": 2,
+          "y": 6
+        },
+        "disables": [
+          "Archive Camera M"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "Collect the early file, then let the decoy cover the later crossing.",
+    "actionTarget": 15,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 3
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 24-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 3
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 24-2"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 6
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Archive Panel M"
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 6
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-25",
+    "title": "Rooftop Valet",
+    "site": "The Amber Penthouse",
+    "difficulty": 2,
+    "briefing": "Slip past the empty valet desk and leave with two sparkling pieces.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 25-1",
+        "at": {
+          "x": 3,
+          "y": 5
+        }
+      },
+      {
+        "id": "Loot 25-2",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [],
+    "terminals": [],
+    "hint": "Both jewels require a TAKE action. The getaway door is at the far right.",
+    "actionTarget": 8,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 25-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 25-2"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-26",
+    "title": "Glass Elevator",
+    "site": "The Amber Penthouse",
+    "difficulty": 3,
+    "briefing": "A lens above the elevator divides the hall in two.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 26-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Lift Camera",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south",
+          "east",
+          "north",
+          "east"
+        ],
+        "range": 3.6,
+        "terminal": null
+      }
+    ],
+    "terminals": [],
+    "hint": "The camera turns toward the east side after two seconds.",
+    "actionTarget": 8,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 4
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 26-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-27",
+    "title": "Service Console",
+    "site": "The Amber Penthouse",
+    "difficulty": 3,
+    "briefing": "The gallery feed runs through a discreet service console.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 27-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Gallery Feed",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Service Console"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Service Console",
+        "at": {
+          "x": 2,
+          "y": 4
+        },
+        "disables": [
+          "Gallery Feed"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "Have the hacker take one step to the console, then the thief can cross.",
+    "actionTarget": 10,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 27-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 4
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Service Console"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-28",
+    "title": "The Guest List",
+    "site": "The Amber Penthouse",
+    "difficulty": 3,
+    "briefing": "The doorman remembers faces. Give him a different one.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "decoy": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 28-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Doorman",
+        "route": [
+          {
+            "x": 5,
+            "y": 3
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [],
+    "terminals": [],
+    "hint": "The decoy can signal from the upper right and turn the doorman east.",
+    "actionTarget": 11,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 28-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-29",
+    "title": "Bedroom Detour",
+    "site": "The Amber Penthouse",
+    "difficulty": 4,
+    "briefing": "One jewel is off the main route; the other sits across the camera's sightline.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 29-1",
+        "at": {
+          "x": 3,
+          "y": 4
+        }
+      },
+      {
+        "id": "Loot 29-2",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Suite Camera",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Suite Panel"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Suite Panel",
+        "at": {
+          "x": 2,
+          "y": 4
+        },
+        "disables": [
+          "Suite Camera"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "Step up for the first jewel, return to the hall, then take the second.",
+    "actionTarget": 14,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 4
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 29-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 29-2"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 4
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Suite Panel"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-30",
+    "title": "Silent Balcony",
+    "site": "The Amber Penthouse",
+    "difficulty": 3,
+    "briefing": "The upstairs hall is watched from below by a rotating lens.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 3
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 3
+    },
+    "loot": [
+      {
+        "id": "Loot 30-1",
+        "at": {
+          "x": 6,
+          "y": 3
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Balcony Camera",
+        "at": {
+          "x": 4,
+          "y": 5
+        },
+        "sweep": [
+          "north",
+          "east",
+          "south",
+          "east"
+        ],
+        "range": 3.6,
+        "terminal": null
+      }
+    ],
+    "terminals": [],
+    "hint": "Hold for one second, then cross while the lens points east.",
+    "actionTarget": 8,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 4
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 3
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 30-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-31",
+    "title": "Indoor Pool",
+    "site": "The Amber Penthouse",
+    "difficulty": 4,
+    "briefing": "A guard watches the upstairs hall from the poolside.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 3
+      },
+      "decoy": {
+        "x": 7,
+        "y": 6
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 3
+    },
+    "loot": [
+      {
+        "id": "Loot 31-1",
+        "at": {
+          "x": 6,
+          "y": 3
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Pool Guard",
+        "route": [
+          {
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "facing": "north",
+        "range": 3.2
+      }
+    ],
+    "cameras": [],
+    "terminals": [],
+    "hint": "A signal beside the pool turns the guard away from the upper walkway.",
+    "actionTarget": 11,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 3
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 31-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-32",
+    "title": "House Network",
+    "site": "The Amber Penthouse",
+    "difficulty": 4,
+    "briefing": "One house panel controls two watchful cameras.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 32-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "House Camera A",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "House Panel"
+      },
+      {
+        "id": "House Camera B",
+        "at": {
+          "x": 5,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "House Panel"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "House Panel",
+        "at": {
+          "x": 2,
+          "y": 4
+        },
+        "disables": [
+          "House Camera A",
+          "House Camera B"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "Both feeds share the same shutdown window. Start your thief after the hack.",
+    "actionTarget": 10,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 32-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 4
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "House Panel"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-33",
+    "title": "Dinner Bell",
+    "site": "The Amber Penthouse",
+    "difficulty": 5,
+    "briefing": "Two pieces are out for display. Security expects the guests to stay put.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "decoy": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 33-1",
+        "at": {
+          "x": 3,
+          "y": 5
+        }
+      },
+      {
+        "id": "Loot 33-2",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Dining Guard",
+        "route": [
+          {
+            "x": 5,
+            "y": 3
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Dining Camera",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south",
+          "east",
+          "north",
+          "east"
+        ],
+        "range": 3.6,
+        "terminal": null
+      }
+    ],
+    "terminals": [],
+    "hint": "A later signal keeps the guard occupied during the second pickup.",
+    "actionTarget": 13,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 33-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 33-2"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 8
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-34",
+    "title": "Private Collection",
+    "site": "The Amber Penthouse",
+    "difficulty": 5,
+    "briefing": "Guard, camera, and crew converge on the upper hallway.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 3
+      },
+      "hacker": {
+        "x": 1,
+        "y": 4
+      },
+      "decoy": {
+        "x": 7,
+        "y": 6
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 3
+    },
+    "loot": [
+      {
+        "id": "Loot 34-1",
+        "at": {
+          "x": 6,
+          "y": 3
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Collection Guard",
+        "route": [
+          {
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "facing": "north",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Collection Camera",
+        "at": {
+          "x": 4,
+          "y": 5
+        },
+        "sweep": [
+          "north"
+        ],
+        "range": 3.6,
+        "terminal": "Collection Panel"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Collection Panel",
+        "at": {
+          "x": 2,
+          "y": 4
+        },
+        "disables": [
+          "Collection Camera"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "The hack blocks the lens. The poolside signal redirects the guard.",
+    "actionTarget": 13,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 3
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 34-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 4
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Collection Panel"
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-35",
+    "title": "The Switch",
+    "site": "The Amber Penthouse",
+    "difficulty": 5,
+    "briefing": "Enter from the service lift while the household gathers on the other side.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 7,
+        "y": 5
+      },
+      "hacker": {
+        "x": 7,
+        "y": 4
+      },
+      "decoy": {
+        "x": 1,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 1,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 35-1",
+        "at": {
+          "x": 2,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "West Guard",
+        "route": [
+          {
+            "x": 3,
+            "y": 3
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Lift Feed",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Lift Panel"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Lift Panel",
+        "at": {
+          "x": 6,
+          "y": 4
+        },
+        "disables": [
+          "Lift Feed"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "The west-side decoy faces the guard away from the reverse exit route.",
+    "actionTarget": 13,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 35-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 4
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Lift Panel"
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 3
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-36",
+    "title": "Penthouse Exit",
+    "site": "The Amber Penthouse",
+    "difficulty": 5,
+    "briefing": "A double pickup and a room detour put every second under pressure.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.##.##.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 4
+      },
+      "decoy": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 36-1",
+        "at": {
+          "x": 3,
+          "y": 4
+        }
+      },
+      {
+        "id": "Loot 36-2",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Final Guard",
+        "route": [
+          {
+            "x": 5,
+            "y": 3
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Final Feed A",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Final Panel"
+      },
+      {
+        "id": "Final Feed B",
+        "at": {
+          "x": 5,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Final Panel"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Final Panel",
+        "at": {
+          "x": 2,
+          "y": 4
+        },
+        "disables": [
+          "Final Feed A",
+          "Final Feed B"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "Time the decoy later; the detour delays the thief's crossing.",
+    "actionTarget": 17,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 4
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 36-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 36-2"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 4
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Final Panel"
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 12
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-37",
+    "title": "Intake Bay",
+    "site": "The Meridian Vault",
+    "difficulty": 3,
+    "briefing": "The freight entrance offers a direct lane, with one predictable patrol.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 7,
+        "y": 5
+      }
+    },
+    "escape": {
+      "x": 1,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 37-1",
+        "at": {
+          "x": 2,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Vault Guard A",
+        "route": [
+          {
+            "x": 4,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [],
+    "terminals": [],
+    "hint": "The guard turns north as you cross the center of the intake lane.",
+    "actionTarget": 7,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 37-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 5
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-38",
+    "title": "Pressure Line",
+    "site": "The Meridian Vault",
+    "difficulty": 3,
+    "briefing": "A vault camera surveys the access corridor, then checks its side wall.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 38-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Pressure Camera",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south",
+          "east",
+          "north",
+          "east"
+        ],
+        "range": 3.6,
+        "terminal": null
+      }
+    ],
+    "terminals": [],
+    "hint": "Wait for the eastward camera sweep before crossing its vertical sightline.",
+    "actionTarget": 8,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 4
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 38-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-39",
+    "title": "Control Room",
+    "site": "The Meridian Vault",
+    "difficulty": 4,
+    "briefing": "The vault cameras answer to a guarded control terminal below the hallway.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 39-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Control Camera",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Control Panel"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Control Panel",
+        "at": {
+          "x": 2,
+          "y": 4
+        },
+        "disables": [
+          "Control Camera"
+        ],
+        "durationTicks": 22
+      }
+    ],
+    "hint": "Hack at the near panel, then follow the camera's inactive indicator.",
+    "actionTarget": 10,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 39-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 4
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Control Panel"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-40",
+    "title": "False Delivery",
+    "site": "The Meridian Vault",
+    "difficulty": 4,
+    "briefing": "A guard expects a courier. The decoy can oblige.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "decoy": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 40-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Courier Guard",
+        "route": [
+          {
+            "x": 5,
+            "y": 3
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [],
+    "terminals": [],
+    "hint": "The signal comes from above and right of the guard, redirecting his attention.",
+    "actionTarget": 11,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 40-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-41",
+    "title": "Redundancy",
+    "site": "The Meridian Vault",
+    "difficulty": 4,
+    "briefing": "Two cameras protect the strong room, both wired to one accessible panel.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 41-1",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Vault Camera A",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Redundant Panel"
+      },
+      {
+        "id": "Vault Camera B",
+        "at": {
+          "x": 5,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Redundant Panel"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Redundant Panel",
+        "at": {
+          "x": 2,
+          "y": 4
+        },
+        "disables": [
+          "Vault Camera A",
+          "Vault Camera B"
+        ],
+        "durationTicks": 22
+      }
+    ],
+    "hint": "Watch both disabled indicators after the hacker finishes.",
+    "actionTarget": 10,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 41-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 4
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Redundant Panel"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-42",
+    "title": "Side Drawer",
+    "site": "The Meridian Vault",
+    "difficulty": 4,
+    "briefing": "One deposit is above the hall; the other is at the end of it.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 42-1",
+        "at": {
+          "x": 3,
+          "y": 4
+        }
+      },
+      {
+        "id": "Loot 42-2",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Drawer Camera",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Drawer Panel"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Drawer Panel",
+        "at": {
+          "x": 2,
+          "y": 4
+        },
+        "disables": [
+          "Drawer Camera"
+        ],
+        "durationTicks": 24
+      }
+    ],
+    "hint": "The upper drawer costs a detour. Keep the camera off for the later crossing.",
+    "actionTarget": 14,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 4
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 42-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 42-2"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 4
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Drawer Panel"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-43",
+    "title": "Motion Study",
+    "site": "The Meridian Vault",
+    "difficulty": 4,
+    "briefing": "The upper corridor is watched from below by a guard and rotating camera.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 3
+      },
+      "decoy": {
+        "x": 7,
+        "y": 6
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 3
+    },
+    "loot": [
+      {
+        "id": "Loot 43-1",
+        "at": {
+          "x": 6,
+          "y": 3
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Upper Guard",
+        "route": [
+          {
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "facing": "north",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Upper Camera",
+        "at": {
+          "x": 4,
+          "y": 5
+        },
+        "sweep": [
+          "north",
+          "east",
+          "south",
+          "east"
+        ],
+        "range": 3.6,
+        "terminal": null
+      }
+    ],
+    "terminals": [],
+    "hint": "The lens turns east as the decoy draws the guard toward the south.",
+    "actionTarget": 11,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 3
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 3
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 43-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-44",
+    "title": "Access Chain",
+    "site": "The Meridian Vault",
+    "difficulty": 5,
+    "briefing": "A single shutdown window has to cover two linked lenses and a timed pickup.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 44-1",
+        "at": {
+          "x": 3,
+          "y": 5
+        }
+      },
+      {
+        "id": "Loot 44-2",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Chain Camera A",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Chain Panel"
+      },
+      {
+        "id": "Chain Camera B",
+        "at": {
+          "x": 5,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Chain Panel"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Chain Panel",
+        "at": {
+          "x": 2,
+          "y": 4
+        },
+        "disables": [
+          "Chain Camera A",
+          "Chain Camera B"
+        ],
+        "durationTicks": 22
+      }
+    ],
+    "hint": "The camera stays dark long enough for both valuables when the thief starts after the hack.",
+    "actionTarget": 12,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 44-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 44-2"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 4
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Chain Panel"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-45",
+    "title": "Second Window",
+    "site": "The Meridian Vault",
+    "difficulty": 5,
+    "briefing": "Enter from the opposite hall. The crew's jobs stay the same, but the angle changes.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 7,
+        "y": 5
+      },
+      "hacker": {
+        "x": 7,
+        "y": 4
+      },
+      "decoy": {
+        "x": 1,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 1,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 45-1",
+        "at": {
+          "x": 2,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Reverse Guard",
+        "route": [
+          {
+            "x": 3,
+            "y": 3
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Reverse Camera",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Reverse Panel"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Reverse Panel",
+        "at": {
+          "x": 6,
+          "y": 4
+        },
+        "disables": [
+          "Reverse Camera"
+        ],
+        "durationTicks": 22
+      }
+    ],
+    "hint": "The hacker uses the east console while the west decoy turns the guard away.",
+    "actionTarget": 13,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 45-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 4
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Reverse Panel"
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 3
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-46",
+    "title": "Long Way Round",
+    "site": "The Meridian Vault",
+    "difficulty": 5,
+    "briefing": "Two deposits sit on different rows. Security meets in the middle.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 4
+      },
+      "decoy": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 46-1",
+        "at": {
+          "x": 3,
+          "y": 4
+        }
+      },
+      {
+        "id": "Loot 46-2",
+        "at": {
+          "x": 6,
+          "y": 5
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Middle Guard",
+        "route": [
+          {
+            "x": 5,
+            "y": 3
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Middle Camera",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Middle Panel"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Middle Panel",
+        "at": {
+          "x": 2,
+          "y": 4
+        },
+        "disables": [
+          "Middle Camera"
+        ],
+        "durationTicks": 26
+      }
+    ],
+    "hint": "The first drawer takes time. Delay the decoy signal to cover the second crossing.",
+    "actionTarget": 17,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 4
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 46-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 46-2"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 4
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Middle Panel"
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 3
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 12
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-47",
+    "title": "Last Safe",
+    "site": "The Meridian Vault",
+    "difficulty": 5,
+    "briefing": "Three valuables require a route through both rows of the strong room.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 47-1",
+        "at": {
+          "x": 3,
+          "y": 4
+        }
+      },
+      {
+        "id": "Loot 47-2",
+        "at": {
+          "x": 5,
+          "y": 5
+        }
+      },
+      {
+        "id": "Loot 47-3",
+        "at": {
+          "x": 6,
+          "y": 4
+        }
+      }
+    ],
+    "guards": [],
+    "cameras": [
+      {
+        "id": "Safe Camera A",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Safe Panel"
+      },
+      {
+        "id": "Safe Camera B",
+        "at": {
+          "x": 5,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Safe Panel"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Safe Panel",
+        "at": {
+          "x": 2,
+          "y": 4
+        },
+        "disables": [
+          "Safe Camera A",
+          "Safe Camera B"
+        ],
+        "durationTicks": 32
+      }
+    ],
+    "hint": "Plan the upper drawer, lower deposit, and final upper safe in that order.",
+    "actionTarget": 17,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 4
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 47-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 47-2"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 4
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 4
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 47-3"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 4
+            }
+          },
+          {
+            "kind": "hack",
+            "target": "Safe Panel"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "heist-48",
+    "title": "Zero Hour",
+    "site": "The Meridian Vault",
+    "difficulty": 5,
+    "briefing": "The vault finale: three pickups, two cameras, one redirected guard, and one exit.",
+    "map": [
+      "#########",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#.......#",
+      "#.......#",
+      "#.#...#.#",
+      "#.......#",
+      "#########"
+    ],
+    "starts": {
+      "thief": {
+        "x": 1,
+        "y": 5
+      },
+      "hacker": {
+        "x": 1,
+        "y": 6
+      },
+      "decoy": {
+        "x": 1,
+        "y": 2
+      }
+    },
+    "escape": {
+      "x": 7,
+      "y": 5
+    },
+    "loot": [
+      {
+        "id": "Loot 48-1",
+        "at": {
+          "x": 3,
+          "y": 4
+        }
+      },
+      {
+        "id": "Loot 48-2",
+        "at": {
+          "x": 5,
+          "y": 5
+        }
+      },
+      {
+        "id": "Loot 48-3",
+        "at": {
+          "x": 6,
+          "y": 4
+        }
+      }
+    ],
+    "guards": [
+      {
+        "id": "Vault Captain",
+        "route": [
+          {
+            "x": 5,
+            "y": 4
+          }
+        ],
+        "facing": "south",
+        "range": 3.2
+      }
+    ],
+    "cameras": [
+      {
+        "id": "Final Camera A",
+        "at": {
+          "x": 4,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Final Vault Panel"
+      },
+      {
+        "id": "Final Camera B",
+        "at": {
+          "x": 5,
+          "y": 3
+        },
+        "sweep": [
+          "south"
+        ],
+        "range": 3.6,
+        "terminal": "Final Vault Panel"
+      }
+    ],
+    "terminals": [
+      {
+        "id": "Final Vault Panel",
+        "at": {
+          "x": 1,
+          "y": 6
+        },
+        "disables": [
+          "Final Camera A",
+          "Final Camera B"
+        ],
+        "durationTicks": 32
+      }
+    ],
+    "hint": "Signal from the west shortly before the middle pickup; the guard must look away from the final safe.",
+    "actionTarget": 20,
+    "reference": {
+      "actions": {
+        "thief": [
+          {
+            "kind": "wait",
+            "ticks": 6
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 2,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 4
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 48-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 4,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 5
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 48-2"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 5,
+              "y": 4
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 4
+            }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 48-3"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 6,
+              "y": 5
+            }
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 7,
+              "y": 5
+            }
+          }
+        ],
+        "hacker": [
+          {
+            "kind": "hack",
+            "target": "Final Vault Panel"
+          }
+        ],
+        "decoy": [
+          {
+            "kind": "move",
+            "at": {
+              "x": 1,
+              "y": 3
+            }
+          },
+          {
+            "kind": "wait",
+            "ticks": 14
+          },
+          {
+            "kind": "distract"
+          }
+        ]
+      }
+    }
+  }
+]
