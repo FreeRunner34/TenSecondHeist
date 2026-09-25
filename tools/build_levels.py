@@ -10,6 +10,7 @@ GALLERY = ["#########", "#...#...#", "#.......#", "#.......#", "#.......#", "#..
 ARCHIVE = ["#########", "#.......#", "#..#.#..#", "#.......#", "#.......#", "#.......#", "#..#.#..#", "#.......#", "#########"]
 PENTHOUSE = ["#########", "#.......#", "#.##.##.#", "#.......#", "#.......#", "#.......#", "#.##.##.#", "#.......#", "#########"]
 VAULT = ["#########", "#.......#", "#.#...#.#", "#.......#", "#.......#", "#.......#", "#.#...#.#", "#.......#", "#########"]
+GALLERY_DOOR = ["#########", "#...#...#", "#...#...#", "#...#...#", "#..#.#..#", "#...+...#", "#...#...#", "#...#...#", "#########"]
 
 
 def tile(x, y): return {"x": x, "y": y}
@@ -97,23 +98,23 @@ author("The Whole Crew", "The Gilt Gallery", 3,
        terminals=[terminal("Panel D", 2, 2, ("Camera D",))], action_target=13)
 
 author("Double Exposure", "The Gilt Gallery", 3,
-       "The collector left two originals out. Grab both before the lens returns.",
-       GALLERY, {"thief": (1, 5), "hacker": (1, 2)}, (7, 5), [(3, 5), (6, 5)],
-       "A single hack gives enough time for both pickups. Mark each canvas separately.",
-       "w6 R R t R R R t R", hacker="R h",
+       "One canvas is off the main route. Grab both before the lens returns.",
+       GALLERY, {"thief": (1, 5), "hacker": (1, 2)}, (7, 5), [(3, 4), (6, 5)],
+       "Step off the hallway for the first canvas, then return and mark the second pickup.",
+       "w6 R R U t D R R R t R", hacker="R h",
        cameras=[camera("Camera E", 4, 3, terminal="Panel E")],
-       terminals=[terminal("Panel E", 2, 2, ("Camera E",))], action_target=12)
+       terminals=[terminal("Panel E", 2, 2, ("Camera E",))], action_target=14)
 author("The Quiet Door", "The Gilt Gallery", 3,
-       "A service door cuts through the night watch's lane.",
-       [*GALLERY[:5], "#...+...#", *GALLERY[6:]], {"thief": (1, 5)}, (7, 5), [(5, 5)],
-       "Doors are walkable. The guard's patrol repeats every two seconds.",
+       "Two gallery wings share a single service door. The night watch stands just above it.",
+       GALLERY_DOOR, {"thief": (1, 5)}, (7, 5), [(5, 5)],
+       "The door is the only crossing. Walk through while the guard faces north.",
        "R R R R t R R", guards=[guard("Guard F", [(4, 4), (4, 5)])], action_target=8)
 author("Curtain Call", "The Gilt Gallery", 3,
-       "Enter from the east. The lens still sweeps on its own clock.",
-       GALLERY, {"thief": (7, 5)}, (1, 5), [(2, 5)],
-       "Wait for the east-facing sweep, then move west across its column.",
-       "w4 L L L L L t L",
-       cameras=[camera("Camera G", 4, 3, ("south", "east", "north", "east"))], action_target=8)
+       "Enter from the east. Recover both pieces before the gallery closes.",
+       GALLERY, {"thief": (7, 5)}, (1, 5), [(5, 5), (2, 5)],
+       "Wait for the east-facing sweep, then take each piece as you move west.",
+       "w4 L L t L L L t L",
+       cameras=[camera("Camera G", 4, 3, ("south", "east", "north", "east"))], action_target=9)
 author("Blind Spot", "The Gilt Gallery", 4,
        "Two lenses share one breaker. Give them both a reason to blink.",
        GALLERY, {"thief": (1, 5), "hacker": (1, 2)}, (7, 5), [(6, 5)],

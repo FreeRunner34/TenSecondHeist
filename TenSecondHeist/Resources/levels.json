@@ -634,7 +634,7 @@
     "title": "Double Exposure",
     "site": "The Gilt Gallery",
     "difficulty": 3,
-    "briefing": "The collector left two originals out. Grab both before the lens returns.",
+    "briefing": "One canvas is off the main route. Grab both before the lens returns.",
     "map": [
       "#########",
       "#...#...#",
@@ -665,7 +665,7 @@
         "id": "Loot 6-1",
         "at": {
           "x": 3,
-          "y": 5
+          "y": 4
         }
       },
       {
@@ -704,8 +704,8 @@
         "durationTicks": 24
       }
     ],
-    "hint": "A single hack gives enough time for both pickups. Mark each canvas separately.",
-    "actionTarget": 12,
+    "hint": "Step off the hallway for the first canvas, then return and mark the second pickup.",
+    "actionTarget": 14,
     "reference": {
       "actions": {
         "thief": [
@@ -728,8 +728,22 @@
             }
           },
           {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 4
+            }
+          },
+          {
             "kind": "take",
             "target": "Loot 6-1"
+          },
+          {
+            "kind": "move",
+            "at": {
+              "x": 3,
+              "y": 5
+            }
           },
           {
             "kind": "move",
@@ -785,15 +799,15 @@
     "title": "The Quiet Door",
     "site": "The Gilt Gallery",
     "difficulty": 3,
-    "briefing": "A service door cuts through the night watch's lane.",
+    "briefing": "Two gallery wings share a single service door. The night watch stands just above it.",
     "map": [
       "#########",
       "#...#...#",
-      "#.......#",
-      "#.......#",
-      "#.......#",
+      "#...#...#",
+      "#...#...#",
+      "#..#.#..#",
       "#...+...#",
-      "#.......#",
+      "#...#...#",
       "#...#...#",
       "#########"
     ],
@@ -835,7 +849,7 @@
     ],
     "cameras": [],
     "terminals": [],
-    "hint": "Doors are walkable. The guard's patrol repeats every two seconds.",
+    "hint": "The door is the only crossing. Walk through while the guard faces north.",
     "actionTarget": 8,
     "reference": {
       "actions": {
@@ -895,7 +909,7 @@
     "title": "Curtain Call",
     "site": "The Gilt Gallery",
     "difficulty": 3,
-    "briefing": "Enter from the east. The lens still sweeps on its own clock.",
+    "briefing": "Enter from the east. Recover both pieces before the gallery closes.",
     "map": [
       "#########",
       "#...#...#",
@@ -921,6 +935,13 @@
       {
         "id": "Loot 8-1",
         "at": {
+          "x": 5,
+          "y": 5
+        }
+      },
+      {
+        "id": "Loot 8-2",
+        "at": {
           "x": 2,
           "y": 5
         }
@@ -945,8 +966,8 @@
       }
     ],
     "terminals": [],
-    "hint": "Wait for the east-facing sweep, then move west across its column.",
-    "actionTarget": 8,
+    "hint": "Wait for the east-facing sweep, then take each piece as you move west.",
+    "actionTarget": 9,
     "reference": {
       "actions": {
         "thief": [
@@ -967,6 +988,10 @@
               "x": 5,
               "y": 5
             }
+          },
+          {
+            "kind": "take",
+            "target": "Loot 8-1"
           },
           {
             "kind": "move",
@@ -991,7 +1016,7 @@
           },
           {
             "kind": "take",
-            "target": "Loot 8-1"
+            "target": "Loot 8-2"
           },
           {
             "kind": "move",
