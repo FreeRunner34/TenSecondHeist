@@ -23,6 +23,18 @@ final class CampaignTests: XCTestCase {
         }
     }
 
+    func testFreeCampaignBoundaryAndSequentialAccess() throws {
+        let levels = try campaign()
+        let firstEight = Set(levels.prefix(8).map(\.id))
+        XCTAssertTrue(CampaignAccess.canPlay(0, levels: levels, completed: [], campaignUnlocked: false))
+        XCTAssertFalse(CampaignAccess.canPlay(1, levels: levels, completed: [], campaignUnlocked: false))
+        XCTAssertTrue(CampaignAccess.canPlay(7, levels: levels, completed: firstEight, campaignUnlocked: false))
+        XCTAssertFalse(CampaignAccess.canPlay(8, levels: levels, completed: firstEight, campaignUnlocked: false))
+        XCTAssertTrue(CampaignAccess.canPlay(8, levels: levels, completed: firstEight, campaignUnlocked: true))
+        XCTAssertFalse(CampaignAccess.canPlay(9, levels: levels, completed: firstEight, campaignUnlocked: true))
+        XCTAssertFalse(CampaignAccess.canPlay(48, levels: levels, completed: firstEight, campaignUnlocked: true))
+    }
+
     func testIdenticalPlansAndScrubsHaveIdenticalState() throws {
         let level = try XCTUnwrap(campaign().first)
         let a = SimulationEngine.run(level.reference, level: level)

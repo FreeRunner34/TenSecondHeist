@@ -132,7 +132,6 @@ struct CampaignScreen: View {
                 }.font(.system(size: 12, weight: .bold, design: .monospaced)).foregroundStyle(HeistStyle.muted)
                 ForEach(game.levels.indices, id: \.self) { index in
                     let level = game.levels[index]
-                    let previousSolved = index == 0 || progress.save.completed.contains(game.levels[index - 1].id)
                     let requiresPurchase = index >= 8 && !purchases.campaignUnlocked
                     VStack(alignment: .leading, spacing: 0) {
                         if index == 0 || game.levels[index - 1].site != level.site {
@@ -144,7 +143,8 @@ struct CampaignScreen: View {
                                 Text("\(min(index + 1, game.levels.count))–\(min(index + 12, game.levels.count))")
                             }.foregroundStyle(HeistStyle.site(level.site)).padding(.bottom, 13)
                         }
-                        if previousSolved && !requiresPurchase {
+                        if CampaignAccess.canPlay(index, levels: game.levels, completed: progress.save.completed,
+                                                  campaignUnlocked: purchases.campaignUnlocked) {
                             NavigationLink(destination: HeistScreen(level: level)) { row(level, index: index, locked: false) }
                         } else if requiresPurchase {
                             NavigationLink(destination: StoreScreen()) { row(level, index: index, locked: true) }

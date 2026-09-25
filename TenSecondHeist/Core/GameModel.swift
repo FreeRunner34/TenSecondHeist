@@ -164,3 +164,11 @@ enum LevelCatalog {
         return levels
     }
 }
+
+enum CampaignAccess {
+    static func canPlay(_ index: Int, levels: [LevelDefinition], completed: Set<String>,
+                        campaignUnlocked: Bool) -> Bool {
+        guard levels.indices.contains(index), index < 8 || campaignUnlocked else { return false }
+        return index == 0 || completed.contains(levels[index - 1].id)
+    }
+}

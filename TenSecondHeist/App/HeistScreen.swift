@@ -4,6 +4,7 @@ struct HeistScreen: View {
     let level: LevelDefinition
     @EnvironmentObject private var game: GameContext
     @EnvironmentObject private var progress: ProgressStore
+    @EnvironmentObject private var purchases: PurchaseManager
     @Environment(\.scenePhase) private var scenePhase
     @State private var plan = Plan()
     @State private var simulation: SimulationResult?
@@ -28,6 +29,11 @@ struct HeistScreen: View {
         guard let index = game.levels.firstIndex(where: { $0.id == level.id }),
               index + 1 < game.levels.count else { return nil }
         return game.levels[index + 1]
+    }
+    private var nextLevelIndex: Int? {
+        guard let index = game.levels.firstIndex(where: { $0.id == level.id }),
+              index + 1 < game.levels.count else { return nil }
+        return index + 1
     }
     private var currentPosition: Tile {
         plan[selected].compactMap { $0.kind == .move ? $0.at : nil }.last ?? level.start(selected) ?? Tile(0, 0)
@@ -326,12 +332,13 @@ struct HeistScreen: View {
                 HeistButton(text: "RETRY", symbol: "arrow.counterclockwise") {
                     tick = 0; attempted = false; recorded = false
                 }
-                if won, let nextLevel {
-                    NavigationLink(destination: HeistScreen(level: nextLevel)) {
-                        Label("NEXT", systemImage: "arrow.right")
-                            .font(.system(size: 15, weight: .bold)).frame(maxWidth: .infinity, minHeight: 50)
-                            .foregroundStyle(HeistStyle.ink)
-                            .background(HeistStyle.gold, in: RoundedRectangle(cornerRadius: 16))
+                if won, let nextLevel, let nextLevelIndex {
+                    if CampaignAccess.canPlay(nextLevelIndex, levels: game.levels,
+                                              completed: progress.save.completed,
+                                              campaignUnlocked: purchases.campaignUnlocked) {
+                        NavigationLink(destination: HeistScreen(level: nextLevel)) { nextButton("NEXT") }
+                    } else if nextLevelIndex >= 8 && !purchases.campaignUnlocked {
+                        NavigationLink(destination: StoreScreen()) { nextButton("UNLOCK NEXT") }
                     }
                 }
             }
@@ -344,6 +351,12 @@ struct HeistScreen: View {
             }
         }.padding(18).frame(maxWidth: .infinity, alignment: .leading)
             .background(HeistStyle.panel, in: RoundedRectangle(cornerRadius: 20))
+    }
+    private func nextButton(_ title: String) -> some View {
+        Label(title, systemImage: "arrow.right")
+            .font(.system(size: 15, weight: .bold)).frame(maxWidth: .infinity, minHeight: 50)
+            .foregroundStyle(HeistStyle.ink)
+            .background(HeistStyle.gold, in: RoundedRectangle(cornerRadius: 16))
     }
 }
 
