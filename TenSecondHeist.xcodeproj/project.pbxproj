@@ -1,0 +1,425 @@
+// !$*UTF8*$!
+{
+  archiveVersion = 1;
+  classes = {
+
+};
+  objectVersion = 60;
+  objects = {
+  0A91A1F815F9885B6C77019D = {
+  isa = PBXFileReference;
+  lastKnownFileType = sourcecode.swift;
+  path = HeistScreen.swift;
+  sourceTree = "<group>";
+};
+  116C7F1B65D647B9F0FAA412 = {
+  isa = XCBuildConfiguration;
+  buildSettings = {
+  BUNDLE_LOADER = "$(TEST_HOST)";
+  CODE_SIGN_STYLE = Automatic;
+  GENERATE_INFOPLIST_FILE = YES;
+  PRODUCT_BUNDLE_IDENTIFIER = com.revpointstudios.tensecondheist.tests;
+  PRODUCT_NAME = "$(TARGET_NAME)";
+  TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TenSecondHeist.app/TenSecondHeist";
+};
+  name = Release;
+};
+  13AFF8D48869E8A3C03E56B8 = {
+  isa = PBXBuildFile;
+  fileRef = 326ED3165C92A71861658D61;
+};
+  13DBC37767BCFA95D0D47E4F = {
+  isa = PBXBuildFile;
+  fileRef = 6C36FFE920F24CEDB7CFDBFC;
+};
+  142A62620F88F5D1AF4B76DD = {
+  isa = PBXFileReference;
+  lastKnownFileType = audio.wav;
+  path = go.wav;
+  sourceTree = "<group>";
+};
+  156052F04525D0F710673CF0 = {
+  isa = PBXGroup;
+  children = (24C08D920D8E3AF41F3829D0);
+  path = TenSecondHeistTests;
+  sourceTree = "<group>";
+};
+  1C48CE29E4E135EE62951B22 = {
+  isa = PBXGroup;
+  children = (CAFB4A21BC3B234305DC9450, 0A91A1F815F9885B6C77019D, 26B790890FF05E3DE30104E9, B0D7A5F5988870959A2E446A, E681360C3058A64C35056DBF);
+  path = TenSecondHeist/App;
+  sourceTree = "<group>";
+};
+  23FB2CAEB38545C3793097DD = {
+  isa = XCBuildConfiguration;
+  buildSettings = {
+  ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+  CODE_SIGN_STYLE = Automatic;
+  CURRENT_PROJECT_VERSION = 1;
+  INFOPLIST_FILE = TenSecondHeist/Info.plist;
+  GENERATE_INFOPLIST_FILE = NO;
+  MARKETING_VERSION = 1.0;
+  PRODUCT_BUNDLE_IDENTIFIER = com.revpointstudios.tensecondheist;
+  PRODUCT_NAME = "$(TARGET_NAME)";
+  SWIFT_EMIT_LOC_STRINGS = YES;
+  SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+  ENABLE_PREVIEWS = YES;
+};
+  name = Release;
+};
+  246D72425ED72831C77C6815 = {
+  isa = PBXBuildFile;
+  fileRef = 24C08D920D8E3AF41F3829D0;
+};
+  24C08D920D8E3AF41F3829D0 = {
+  isa = PBXFileReference;
+  lastKnownFileType = sourcecode.swift;
+  path = CampaignTests.swift;
+  sourceTree = "<group>";
+};
+  26B790890FF05E3DE30104E9 = {
+  isa = PBXFileReference;
+  lastKnownFileType = sourcecode.swift;
+  path = Visuals.swift;
+  sourceTree = "<group>";
+};
+  283236DFCBED01B817B33E02 = {
+  isa = PBXSourcesBuildPhase;
+  buildActionMask = 2147483647;
+  files = (246D72425ED72831C77C6815);
+  runOnlyForDeploymentPostprocessing = 0;
+};
+  29C7B681C8D62CBAC94D51C0 = {
+  isa = PBXNativeTarget;
+  buildConfigurationList = 6999223B144664B5601B7EE0;
+  buildPhases = (507A349611DBB42F9CF9069B, 4C29BBC16528FEA9E858725B);
+  buildRules = ();
+  dependencies = ();
+  name = TenSecondHeist;
+  productName = TenSecondHeist;
+  productReference = B6CDB6E5D160E013280D3C68;
+  productType = com.apple.product-type.application;
+};
+  326ED3165C92A71861658D61 = {
+  isa = PBXFileReference;
+  lastKnownFileType = sourcecode.swift;
+  path = PurchaseManager.swift;
+  sourceTree = "<group>";
+};
+  38FD0866DF9017CABF48D03B = {
+  isa = PBXFileReference;
+  lastKnownFileType = audio.wav;
+  path = caught.wav;
+  sourceTree = "<group>";
+};
+  3CF6A4F2E05B3AAE7E2CBFEE = {
+  isa = XCBuildConfiguration;
+  buildSettings = {
+  ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+  CODE_SIGN_STYLE = Automatic;
+  CURRENT_PROJECT_VERSION = 1;
+  INFOPLIST_FILE = TenSecondHeist/Info.plist;
+  GENERATE_INFOPLIST_FILE = NO;
+  MARKETING_VERSION = 1.0;
+  PRODUCT_BUNDLE_IDENTIFIER = com.revpointstudios.tensecondheist;
+  PRODUCT_NAME = "$(TARGET_NAME)";
+  SWIFT_EMIT_LOC_STRINGS = YES;
+  SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+  ENABLE_PREVIEWS = YES;
+};
+  name = Debug;
+};
+  401A7A7334700FCE8CC0F00A = {
+  isa = PBXBuildFile;
+  fileRef = 38FD0866DF9017CABF48D03B;
+};
+  410188F9DC6E499FEC68BCF6 = {
+  isa = PBXGroup;
+  children = (D29898317E1B75DE6538C994, 7DC2B67FD468A4EA7D292463, 4E9D082E2B1BC0E36082B825, 326ED3165C92A71861658D61);
+  path = TenSecondHeist/Core;
+  sourceTree = "<group>";
+};
+  4C29BBC16528FEA9E858725B = {
+  isa = PBXResourcesBuildPhase;
+  buildActionMask = 2147483647;
+  files = (13DBC37767BCFA95D0D47E4F, C7567952B13137C957660EE2, 6D1C5F86D81D906F1698ED86, B78D40B9CA6277EBB319F600, F4265299387782C3ED4B8427, 401A7A7334700FCE8CC0F00A);
+  runOnlyForDeploymentPostprocessing = 0;
+};
+  4E9D082E2B1BC0E36082B825 = {
+  isa = PBXFileReference;
+  lastKnownFileType = sourcecode.swift;
+  path = ProgressStore.swift;
+  sourceTree = "<group>";
+};
+  507A349611DBB42F9CF9069B = {
+  isa = PBXSourcesBuildPhase;
+  buildActionMask = 2147483647;
+  files = (D619D5B19654ABADEF7E42DC, F604CBAB5798E8A8554AFA72, 68CF5781E97870DCE5F240EF, 6BD23DD63C1CC5ABC568B8DE, AAFCD4E961868002524B6894, 7D62D9AC3104889C3E606713, 7FA45A5195F76C6E06CD2F4B, 646C1A333D789D255BBF54E2, 13AFF8D48869E8A3C03E56B8);
+  runOnlyForDeploymentPostprocessing = 0;
+};
+  5151B46607EBC8890D8DFCC2 = {
+  isa = PBXGroup;
+  children = (B6CDB6E5D160E013280D3C68, A8D8270AA6DB8732282C9541);
+  name = Products;
+  sourceTree = "<group>";
+};
+  6399BAB5B66482E8ED40094B = {
+  isa = PBXFileReference;
+  lastKnownFileType = audio.wav;
+  path = success.wav;
+  sourceTree = "<group>";
+};
+  646C1A333D789D255BBF54E2 = {
+  isa = PBXBuildFile;
+  fileRef = 4E9D082E2B1BC0E36082B825;
+};
+  68CF5781E97870DCE5F240EF = {
+  isa = PBXBuildFile;
+  fileRef = 26B790890FF05E3DE30104E9;
+};
+  68E77A9D7BC78A97D4F4E27B = {
+  isa = PBXFileReference;
+  lastKnownFileType = text.plist.xml;
+  path = TenSecondHeist/Info.plist;
+  sourceTree = "<group>";
+};
+  6999223B144664B5601B7EE0 = {
+  isa = XCConfigurationList;
+  buildConfigurations = (3CF6A4F2E05B3AAE7E2CBFEE, 23FB2CAEB38545C3793097DD);
+  defaultConfigurationIsVisible = 0;
+  defaultConfigurationName = Release;
+};
+  6BD23DD63C1CC5ABC568B8DE = {
+  isa = PBXBuildFile;
+  fileRef = B0D7A5F5988870959A2E446A;
+};
+  6C36FFE920F24CEDB7CFDBFC = {
+  isa = PBXFileReference;
+  lastKnownFileType = folder.assetcatalog;
+  path = Assets.xcassets;
+  sourceTree = "<group>";
+};
+  6D1C5F86D81D906F1698ED86 = {
+  isa = PBXBuildFile;
+  fileRef = C42F2B238B189B438188BBAF;
+};
+  7D62D9AC3104889C3E606713 = {
+  isa = PBXBuildFile;
+  fileRef = D29898317E1B75DE6538C994;
+};
+  7DC2B67FD468A4EA7D292463 = {
+  isa = PBXFileReference;
+  lastKnownFileType = sourcecode.swift;
+  path = Simulation.swift;
+  sourceTree = "<group>";
+};
+  7FA45A5195F76C6E06CD2F4B = {
+  isa = PBXBuildFile;
+  fileRef = 7DC2B67FD468A4EA7D292463;
+};
+  82A4B6F3DEB17576E838F4C6 = {
+  isa = XCConfigurationList;
+  buildConfigurations = (B41A663912C5AD2A1D96567A, 116C7F1B65D647B9F0FAA412);
+  defaultConfigurationIsVisible = 0;
+  defaultConfigurationName = Release;
+};
+  868C2D0100C5F6D76CC6F758 = {
+  isa = PBXResourcesBuildPhase;
+  buildActionMask = 2147483647;
+  files = (A966FF1C92B379F67855DEAC);
+  runOnlyForDeploymentPostprocessing = 0;
+};
+  877A6BA951A2EA0025A2ABE8 = {
+  isa = XCBuildConfiguration;
+  buildSettings = {
+  ALWAYS_SEARCH_USER_PATHS = NO;
+  CLANG_ENABLE_MODULES = YES;
+  IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+  SDKROOT = iphoneos;
+  SWIFT_VERSION = 5.0;
+  TARGETED_DEVICE_FAMILY = 1;
+  DEBUG_INFORMATION_FORMAT = dwarf;
+  ENABLE_TESTABILITY = YES;
+  SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+};
+  name = Debug;
+};
+  90A0B88B91A0FFF5004A781B = {
+  isa = PBXFileReference;
+  lastKnownFileType = text;
+  path = Local.storekit;
+  sourceTree = "<group>";
+};
+  931BAC40E0989DC841B8C1D2 = {
+  isa = PBXGroup;
+  children = (1C48CE29E4E135EE62951B22, 410188F9DC6E499FEC68BCF6, A024F06580C79B7582C3806A, 68E77A9D7BC78A97D4F4E27B, 156052F04525D0F710673CF0, 5151B46607EBC8890D8DFCC2);
+  name = Main;
+  sourceTree = "<group>";
+};
+  959134B361DD7E21ADEA3164 = {
+  isa = XCBuildConfiguration;
+  buildSettings = {
+  ALWAYS_SEARCH_USER_PATHS = NO;
+  CLANG_ENABLE_MODULES = YES;
+  IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+  SDKROOT = iphoneos;
+  SWIFT_VERSION = 5.0;
+  TARGETED_DEVICE_FAMILY = 1;
+  DEBUG_INFORMATION_FORMAT = dwarf-with-dsym;
+  SWIFT_COMPILATION_MODE = wholemodule;
+};
+  name = Release;
+};
+  98F54143AB4E86B28C3AFEE0 = {
+  isa = PBXProject;
+  attributes = {
+  LastUpgradeCheck = 1600;
+  TargetAttributes = {
+  29C7B681C8D62CBAC94D51C0 = {
+  CreatedOnToolsVersion = 16.0;
+};
+  EA5815D3D83100CE3F564964 = {
+  CreatedOnToolsVersion = 16.0;
+  TestTargetID = 29C7B681C8D62CBAC94D51C0;
+};
+};
+};
+  buildConfigurationList = FCBE72429C0B1B8B87DC8CC9;
+  compatibilityVersion = "Xcode 15.0";
+  developmentRegion = en;
+  hasScannedForEncodings = 0;
+  knownRegions = (en, Base);
+  mainGroup = 931BAC40E0989DC841B8C1D2;
+  productRefGroup = 5151B46607EBC8890D8DFCC2;
+  projectDirPath = "";
+  projectRoot = "";
+  targets = (29C7B681C8D62CBAC94D51C0, EA5815D3D83100CE3F564964);
+};
+  A024F06580C79B7582C3806A = {
+  isa = PBXGroup;
+  children = (6C36FFE920F24CEDB7CFDBFC, E9602DB58CA6A21AC52051C4, 90A0B88B91A0FFF5004A781B, C42F2B238B189B438188BBAF, 142A62620F88F5D1AF4B76DD, 6399BAB5B66482E8ED40094B, 38FD0866DF9017CABF48D03B);
+  path = TenSecondHeist/Resources;
+  sourceTree = "<group>";
+};
+  A8D8270AA6DB8732282C9541 = {
+  isa = PBXFileReference;
+  explicitFileType = wrapper.cfbundle;
+  includeInIndex = 0;
+  path = TenSecondHeistTests.xctest;
+  sourceTree = BUILT_PRODUCTS_DIR;
+};
+  A966FF1C92B379F67855DEAC = {
+  isa = PBXBuildFile;
+  fileRef = E9602DB58CA6A21AC52051C4;
+};
+  AAFCD4E961868002524B6894 = {
+  isa = PBXBuildFile;
+  fileRef = E681360C3058A64C35056DBF;
+};
+  B0D7A5F5988870959A2E446A = {
+  isa = PBXFileReference;
+  lastKnownFileType = sourcecode.swift;
+  path = ReplayExporter.swift;
+  sourceTree = "<group>";
+};
+  B41A663912C5AD2A1D96567A = {
+  isa = XCBuildConfiguration;
+  buildSettings = {
+  BUNDLE_LOADER = "$(TEST_HOST)";
+  CODE_SIGN_STYLE = Automatic;
+  GENERATE_INFOPLIST_FILE = YES;
+  PRODUCT_BUNDLE_IDENTIFIER = com.revpointstudios.tensecondheist.tests;
+  PRODUCT_NAME = "$(TARGET_NAME)";
+  TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TenSecondHeist.app/TenSecondHeist";
+};
+  name = Debug;
+};
+  B6CDB6E5D160E013280D3C68 = {
+  isa = PBXFileReference;
+  explicitFileType = wrapper.application;
+  includeInIndex = 0;
+  path = TenSecondHeist.app;
+  sourceTree = BUILT_PRODUCTS_DIR;
+};
+  B78D40B9CA6277EBB319F600 = {
+  isa = PBXBuildFile;
+  fileRef = 142A62620F88F5D1AF4B76DD;
+};
+  C42F2B238B189B438188BBAF = {
+  isa = PBXFileReference;
+  lastKnownFileType = audio.wav;
+  path = music.wav;
+  sourceTree = "<group>";
+};
+  C7567952B13137C957660EE2 = {
+  isa = PBXBuildFile;
+  fileRef = E9602DB58CA6A21AC52051C4;
+};
+  CAFB4A21BC3B234305DC9450 = {
+  isa = PBXFileReference;
+  lastKnownFileType = sourcecode.swift;
+  path = TenSecondHeistApp.swift;
+  sourceTree = "<group>";
+};
+  D29898317E1B75DE6538C994 = {
+  isa = PBXFileReference;
+  lastKnownFileType = sourcecode.swift;
+  path = GameModel.swift;
+  sourceTree = "<group>";
+};
+  D619D5B19654ABADEF7E42DC = {
+  isa = PBXBuildFile;
+  fileRef = CAFB4A21BC3B234305DC9450;
+};
+  DE58E2B17C19600779694943 = {
+  isa = PBXTargetDependency;
+  target = 29C7B681C8D62CBAC94D51C0;
+  targetProxy = F5A429194A00232ACC3298B6;
+};
+  E681360C3058A64C35056DBF = {
+  isa = PBXFileReference;
+  lastKnownFileType = sourcecode.swift;
+  path = Soundscape.swift;
+  sourceTree = "<group>";
+};
+  E9602DB58CA6A21AC52051C4 = {
+  isa = PBXFileReference;
+  lastKnownFileType = text.json;
+  path = levels.json;
+  sourceTree = "<group>";
+};
+  EA5815D3D83100CE3F564964 = {
+  isa = PBXNativeTarget;
+  buildConfigurationList = 82A4B6F3DEB17576E838F4C6;
+  buildPhases = (283236DFCBED01B817B33E02, 868C2D0100C5F6D76CC6F758);
+  buildRules = ();
+  dependencies = (DE58E2B17C19600779694943);
+  name = TenSecondHeistTests;
+  productName = TenSecondHeistTests;
+  productReference = A8D8270AA6DB8732282C9541;
+  productType = com.apple.product-type.bundle.unit-test;
+};
+  F4265299387782C3ED4B8427 = {
+  isa = PBXBuildFile;
+  fileRef = 6399BAB5B66482E8ED40094B;
+};
+  F5A429194A00232ACC3298B6 = {
+  isa = PBXContainerItemProxy;
+  containerPortal = 98F54143AB4E86B28C3AFEE0;
+  proxyType = 1;
+  remoteGlobalIDString = 29C7B681C8D62CBAC94D51C0;
+  remoteInfo = TenSecondHeist;
+};
+  F604CBAB5798E8A8554AFA72 = {
+  isa = PBXBuildFile;
+  fileRef = 0A91A1F815F9885B6C77019D;
+};
+  FCBE72429C0B1B8B87DC8CC9 = {
+  isa = XCConfigurationList;
+  buildConfigurations = (877A6BA951A2EA0025A2ABE8, 959134B361DD7E21ADEA3164);
+  defaultConfigurationIsVisible = 0;
+  defaultConfigurationName = Release;
+};
+};
+  rootObject = 98F54143AB4E86B28C3AFEE0;
+}
