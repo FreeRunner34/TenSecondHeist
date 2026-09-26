@@ -5,7 +5,7 @@
 1. Open `TenSecondHeist.xcodeproj`; select your team and verify the bundle identifier `com.revpointstudios.tensecondheist` is available on your account. Keep iPhone-only and portrait settings unless you deliberately extend the UI.
 2. Run the scheme on a small iPhone simulator and a current larger iPhone. Run all XCTest cases. Test route dragging near corners, role selection where paths overlap, scroll/timeline controls, Reset Plan and Undo Reset, backgrounding during playback and replay export, reduced motion, music/effects settings, and VoiceOver labels. Fix anything awkward before archive.
 3. Test on a physical iPhone: start and complete levels including #5 and #48, fail deliberately and jump to the timestamp, scrub/rewind and retry, switch assistance off for Perfect Heist, sound interruptions, and video export/preview/share. Video is rendered only from the simulated game board; it never records device screens.
-4. In **Edit Scheme → Run → Options**, choose `Local.storekit`; purchase, cancel, simulate pending, refund/revoke, restore, and relaunch. This is local StoreKit simulation only. Remove the local configuration from the launch scheme when testing real sandbox products or TestFlight.
+4. In **Edit Scheme → Run → Options**, choose `Local.storekit`; test the Full Campaign purchase, cancellation, pending state, revoke, restore, and relaunch. The simulator disables the paid CloudKit wallet because CI builds are unsigned; use a signed physical device for token purchases and wallet recovery. Remove the local configuration from the launch scheme when testing real sandbox products or TestFlight.
 
 ## App Store Connect
 

@@ -1,6 +1,5 @@
 import CloudKit
 import Foundation
-import Security
 
 // The paid wallet lives in one record in the player's private iCloud database. Every
 // credit or spend reads the current change tag and saves conditionally, so two
@@ -58,13 +57,13 @@ enum PaidWalletError: LocalizedError {
     private let recordID = CKRecord.ID(recordName: "paid-wallet-v1")
 
     private func checkedContainer() throws -> CKContainer {
-        // An unsigned CI simulator has no iCloud entitlement. CloudKit aborts
-        // the process when a container is created without one, so check first.
-        guard let task = SecTaskCreateFromSelf(nil),
-              let services = SecTaskCopyValueForEntitlement(task,
-                  "com.apple.developer.icloud-services" as CFString, nil) as? [String],
-              services.contains("CloudKit") else { throw PaidWalletError.unavailable }
+        // CI builds unsigned simulator apps. CloudKit aborts the process when
+        // its container is created without a signed iCloud entitlement.
+        #if targetEnvironment(simulator)
+        throw PaidWalletError.unavailable
+        #else
         return CKContainer(identifier: "iCloud.com.revpointstudios.tensecondheist")
+        #endif
     }
 
     func refresh() async throws -> PaidWalletState {
