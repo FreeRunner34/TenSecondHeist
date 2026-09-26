@@ -103,8 +103,30 @@ final class CampaignTests: XCTestCase {
         XCTAssertTrue(reopened.save.hints.contains(level.id))
         XCTAssertTrue(reopened.save.completed.contains(level.id))
         XCTAssertEqual(reopened.plan(for: level), level.reference)
-        XCTAssertTrue(reopened.creditTransaction(12345, tokens: 5))
-        XCTAssertTrue(reopened.creditTransaction(12345, tokens: 5))
-        XCTAssertEqual(reopened.save.tokenBalance, 7)
+        XCTAssertEqual(reopened.save.tokenBalance, 2)
+    }
+
+    @MainActor func testPaidWalletIdempotencyAndRecovery() throws {
+        let level = try campaign()[0]
+        var wallet = PaidWalletState()
+        wallet.credit(transactionID: 12345, count: 5)
+        wallet.credit(transactionID: 12345, count: 5)
+        XCTAssertEqual(wallet.balance, 5)
+        XCTAssertTrue(wallet.spend(levelID: level.id, mode: .tip))
+        XCTAssertTrue(wallet.spend(levelID: level.id, mode: .tip))
+        XCTAssertEqual(wallet.balance, 4)
+        let recovered = try JSONDecoder().decode(PaidWalletState.self, from: JSONEncoder().encode(wallet))
+        let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        let url = folder.appendingPathComponent("save.json")
+        defer { try? FileManager.default.removeItem(at: folder) }
+        let progress = ProgressStore(levels: [level], saveURL: url)
+        XCTAssertTrue(progress.mergePaidUnlocks(recovered.unlocks))
+        let reopened = ProgressStore(levels: [level], saveURL: url)
+        XCTAssertTrue(reopened.isUnlocked(.tip, level: level))
+        XCTAssertTrue(reopened.activate(.tip, level: level))
+        XCTAssertEqual(reopened.save.tokenBalance, 3)
+        wallet.revoke(transactionID: 12345)
+        wallet.credit(transactionID: 12345, count: 5)
+        XCTAssertEqual(wallet.balance, 0)
     }
 }

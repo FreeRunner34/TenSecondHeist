@@ -37,7 +37,7 @@ def file(name, kind, source="<group>"):
 
 
 app_sources = ["TenSecondHeistApp.swift", "HeistScreen.swift", "Visuals.swift", "ReplayExporter.swift", "Soundscape.swift"]
-core_sources = ["GameModel.swift", "Simulation.swift", "ProgressStore.swift", "PurchaseManager.swift"]
+core_sources = ["GameModel.swift", "Simulation.swift", "ProgressStore.swift", "PaidTokenWallet.swift", "PurchaseManager.swift"]
 app_files = [file(name, "sourcecode.swift") for name in app_sources]
 core_files = [file(name, "sourcecode.swift") for name in core_sources]
 assets = file("Assets.xcassets", "folder.assetcatalog")
@@ -95,6 +95,7 @@ project_config = config_list("project", proj_debug, proj_release)
 
 
 app_common = {"ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon", "CODE_SIGN_STYLE": "Automatic",
+              "CODE_SIGN_ENTITLEMENTS": "TenSecondHeist/TenSecondHeist.entitlements",
               "CURRENT_PROJECT_VERSION": "1", "INFOPLIST_FILE": "TenSecondHeist/Info.plist",
               "GENERATE_INFOPLIST_FILE": "NO", "MARKETING_VERSION": "1.0",
               "PRODUCT_BUNDLE_IDENTIFIER": "com.revpointstudios.tensecondheist",

@@ -27,6 +27,7 @@ import SwiftUI
                 .environmentObject(game.progress)
                 .environmentObject(purchases)
                 .onReceive(game.progress.$save) { Soundscape.shared.configure(save: $0) }
+                .task { await purchases.start(progress: game.progress) }
                 .preferredColorScheme(.dark)
         }
     }
@@ -208,8 +209,27 @@ struct StoreScreen: View {
                 Divider().overlay(HeistStyle.muted)
                 Text("INSIDE HELP").font(.system(size: 12, weight: .heavy, design: .monospaced))
                     .tracking(2).foregroundStyle(HeistStyle.teal)
-                Text("Three introductory tokens are included. Tips and camera loops are optional. Token packs are separate from Full Campaign and are currently unavailable while cross-device recovery is being finalized.")
+                Text("Three introductory tokens are included. Tips and camera loops are optional.")
                     .foregroundStyle(HeistStyle.muted).font(.footnote)
+                Text("\(purchases.paidBalance) PAID TOKENS · ICLOUD WALLET")
+                    .font(.system(size: 12, weight: .heavy, design: .monospaced)).foregroundStyle(HeistStyle.gold)
+                Text("Token packs are separate optional purchases. An iCloud account and connection are required to buy or spend paid tokens and recover them on another device. The three included tokens still work offline.")
+                    .font(.footnote).foregroundStyle(HeistStyle.muted)
+                ForEach([PurchaseManager.fiveTokenID, PurchaseManager.twelveTokenID], id: \.self) { productID in
+                    let quantity = productID == PurchaseManager.fiveTokenID ? 5 : 12
+                    HeistButton(text: purchases.tokenProducts[productID].map {
+                        "\(quantity) TOKENS · \($0.displayPrice)"
+                    } ?? "\(quantity) TOKENS · UNAVAILABLE", symbol: "sparkles") {
+                        Task { await purchases.buyTokens(productID) }
+                    }.disabled(!purchases.walletReady || purchases.busy || purchases.tokenProducts[productID] == nil)
+                }
+                if !purchases.walletReady {
+                    Text("Paid tokens are unavailable until the iCloud wallet connects. Refresh below after signing into iCloud or reconnecting.")
+                        .font(.footnote).foregroundStyle(HeistStyle.muted)
+                    HeistButton(text: "REFRESH ICLOUD WALLET", symbol: "arrow.clockwise") {
+                        Task { await purchases.refreshWallet() }
+                    }
+                }
             }.padding(20)
         }.background(HeistBackground()).navigationTitle("STORE").navigationBarTitleDisplayMode(.inline)
     }
@@ -254,8 +274,8 @@ struct PrivacyScreen: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 15) {
                 BrandHeading(overline: "Your game, your device", title: "Privacy")
-                Text("Ten Second Heist stores plans, progress, settings, and introductory assistance tokens on your device. The game has no account, advertising, analytics, tracking, or in-game uploads.")
-                Text("The App Store processes the optional Full Campaign purchase. Apple may process purchase information under its own privacy policy. StoreKit checks your permanent entitlement when you open the app or restore purchases. Introductory tokens are local and cannot be recovered after reinstall.")
+                Text("Ten Second Heist stores plans, progress, settings, and introductory assistance tokens on your device. Paid token credits and paid help unlocks are stored in your private iCloud database so they can sync to devices using the same iCloud account. The game has no separate account, advertising, analytics, or tracking.")
+                Text("The App Store processes optional Full Campaign and token purchases. StoreKit checks the permanent campaign entitlement on launch and restore. Paid tokens need iCloud and a connection to purchase or spend. Introductory tokens are local and may be lost after reinstall without a device backup.")
                 Text("A replay is rendered from the game simulation and stays on your device unless you choose to share it through the iOS share sheet. No other screens or notifications are captured.")
                 Text("Questions? Open the support page from Settings. Please do not post private information in a public issue.")
             }.foregroundStyle(HeistStyle.cream).frame(maxWidth: .infinity, alignment: .leading).padding(20)

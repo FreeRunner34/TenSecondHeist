@@ -9,8 +9,8 @@ struct PlayerSave: Codable {
     var hints: Set<String> = []
     var unlockedAssists: [String: Set<String>] = [:]
     var activeAssists: [String: AssistMode] = [:]
-    var tokenBalance = 3
-    var creditedTransactions: Set<UInt64> = []
+    var tokenBalance = 3 // Included, local-only tokens. Paid balance lives in CloudKit.
+    var creditedTransactions: Set<UInt64> = [] // Legacy v2 field; never used for new purchases.
     var failures: [String: Int] = [:]
     var musicEnabled = true
     var effectsEnabled = true
@@ -114,10 +114,15 @@ struct PlayerSave: Codable {
         }
     }
     func deactivate(level: LevelDefinition) { commit { $0.activeAssists[level.id] = nil } }
-    func creditTransaction(_ id: UInt64, tokens: Int) -> Bool {
-        guard tokens > 0 else { return false }
-        return commit {
-            if $0.creditedTransactions.insert(id).inserted { $0.tokenBalance += tokens }
+    @discardableResult func mergePaidUnlocks(_ identifiers: Set<String>) -> Bool {
+        commit { save in
+            for identifier in identifiers {
+                let parts = identifier.components(separatedBy: "::")
+                guard parts.count == 2, levels.contains(where: { $0.id == parts[0] }),
+                      parts[1] == "tip" || parts[1].hasPrefix("loop:") else { continue }
+                save.unlockedAssists[parts[0], default: []].insert(parts[1])
+                if parts[1] == "tip" { save.hints.insert(parts[0]) }
+            }
         }
     }
     private func key(_ mode: AssistMode) -> String {

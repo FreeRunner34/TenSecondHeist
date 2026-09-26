@@ -443,6 +443,7 @@ struct HeistScreen: View {
 struct AssistanceScreen: View {
     let level: LevelDefinition
     @EnvironmentObject private var progress: ProgressStore
+    @EnvironmentObject private var purchases: PurchaseManager
     @Environment(\.dismiss) private var dismiss
     @State private var selection: AssistMode = .tip
     private var loopable: [Camera] { level.cameras.filter { camera in level.terminals.contains { $0.disables.contains(camera.id) } } }
@@ -450,7 +451,7 @@ struct AssistanceScreen: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 15) {
                 BrandHeading(overline: "Optional assistance", title: "Inside Help")
-                Text("\(progress.save.tokenBalance) INTRODUCTORY TOKENS")
+                Text("\(progress.save.tokenBalance) INCLUDED · \(purchases.paidBalance) PAID TOKENS")
                     .font(.system(size: 12, weight: .heavy, design: .monospaced)).foregroundStyle(HeistStyle.gold)
                 Text("All levels are solvable without help. Rewinds and retries are always free. Only one assistance type is active per attempt.")
                     .font(.footnote).foregroundStyle(HeistStyle.muted)
@@ -470,16 +471,23 @@ struct AssistanceScreen: View {
                                selected: selection == .loop(camera: camera.id))
                     }
                 }
-                HeistButton(text: progress.isUnlocked(selection, level: level) ? "ACTIVATE AGAIN · FREE" : "USE 1 TOKEN",
+                HeistButton(text: progress.isUnlocked(selection, level: level) ? "ACTIVATE AGAIN · FREE" :
+                            progress.save.tokenBalance > 0 ? "USE 1 INCLUDED TOKEN" : "USE 1 PAID TOKEN",
                             symbol: "checkmark", prominent: true) {
-                    if progress.activate(selection, level: level) { dismiss() }
-                }.disabled(!progress.isUnlocked(selection, level: level) && progress.save.tokenBalance == 0)
+                    if progress.isUnlocked(selection, level: level) || progress.save.tokenBalance > 0 {
+                        if progress.activate(selection, level: level) { dismiss() }
+                    } else {
+                        Task { if await purchases.activatePaid(selection, level: level) { dismiss() } }
+                    }
+                }.disabled(!progress.isUnlocked(selection, level: level) && progress.save.tokenBalance == 0 &&
+                           (!purchases.walletReady || purchases.paidBalance == 0 || purchases.busy))
+                if let message = purchases.message { Text(message).font(.footnote).foregroundStyle(HeistStyle.muted) }
                 if progress.save.activeAssists[level.id] != nil {
                     HeistButton(text: "SWITCH OFF FOR UNASSISTED RUN", symbol: "power") {
                         progress.deactivate(level: level); dismiss()
                     }
                 }
-                Text("Clues and camera loops already unlocked for this level remain available after retries and relaunch. Purchased token packs are unavailable until wallet recovery is reliable.")
+                Text("Clues and camera loops already unlocked remain available after retries and relaunch. Paid unlocks and the paid balance sync with the same iCloud account. Free retries never spend tokens.")
                     .font(.footnote).foregroundStyle(HeistStyle.muted)
             }.padding(20)
         }.background(HeistBackground())
