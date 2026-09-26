@@ -1,5 +1,6 @@
 import CloudKit
 import Foundation
+import Security
 
 // The paid wallet lives in one record in the player's private iCloud database. Every
 // credit or spend reads the current change tag and saves conditionally, so two
@@ -54,13 +55,22 @@ enum PaidWalletError: LocalizedError {
 }
 
 @MainActor final class PaidTokenWallet {
-    private let container = CKContainer(identifier: "iCloud.com.revpointstudios.tensecondheist")
     private let recordID = CKRecord.ID(recordName: "paid-wallet-v1")
-    private var database: CKDatabase { container.privateCloudDatabase }
+
+    private func checkedContainer() throws -> CKContainer {
+        // An unsigned CI simulator has no iCloud entitlement. CloudKit aborts
+        // the process when a container is created without one, so check first.
+        guard let task = SecTaskCreateFromSelf(nil),
+              let services = SecTaskCopyValueForEntitlement(task,
+                  "com.apple.developer.icloud-services" as CFString, nil) as? [String],
+              services.contains("CloudKit") else { throw PaidWalletError.unavailable }
+        return CKContainer(identifier: "iCloud.com.revpointstudios.tensecondheist")
+    }
 
     func refresh() async throws -> PaidWalletState {
+        let container = try checkedContainer()
         guard try await container.accountStatus() == .available else { throw PaidWalletError.unavailable }
-        return try await fetch().state
+        return try await fetch(in: container.privateCloudDatabase).state
     }
 
     func credit(transactionID: UInt64, count: Int) async throws -> PaidWalletState {
@@ -77,7 +87,7 @@ enum PaidWalletError: LocalizedError {
         }
     }
 
-    private func fetch() async throws -> (record: CKRecord?, state: PaidWalletState) {
+    private func fetch(in database: CKDatabase) async throws -> (record: CKRecord?, state: PaidWalletState) {
         do {
             let record = try await database.record(for: recordID)
             guard let data = record["payload"] as? Data else { throw PaidWalletError.corrupt }
@@ -90,9 +100,11 @@ enum PaidWalletError: LocalizedError {
     }
 
     private func modify(_ change: (inout PaidWalletState) throws -> Void) async throws -> PaidWalletState {
+        let container = try checkedContainer()
         guard try await container.accountStatus() == .available else { throw PaidWalletError.unavailable }
+        let database = container.privateCloudDatabase
         for _ in 0..<6 {
-            let (existing, old) = try await fetch()
+            let (existing, old) = try await fetch(in: database)
             var updated = old
             try change(&updated)
             if updated == old { return old }
